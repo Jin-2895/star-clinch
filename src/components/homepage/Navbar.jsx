@@ -3,7 +3,7 @@ import logo from '../../assets/logo.svg';
 export default function Navbar() {
   return (
     <div className=" px-[48px] py-[28px] ">
-      <div className="container mx-auto  flex lg:flex-row sm:flex-col items-center justify-between ">
+      <div className="flex lg:flex-row sm:flex-col items-center justify-between ">
         {/* Logo */}
         <div>
           <img src={logo} alt="StarClinch Logo" className="h-12" />

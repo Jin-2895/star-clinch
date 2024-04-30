@@ -6,6 +6,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  /* overflow: hidden; */
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -107,5 +108,21 @@ backdrop-filter: blur(12px);
   margin-left: 130px;
 }
 
+.bg-gray-300{
+  background-color: azure;
+}
+.text-blue-gray-900{
+  color: white;
+}
+.bg-gray-900{
 
-
+  background-image: linear-gradient(to right, rgba(236, 161, 107, 1), rgba(248, 63, 152, 1));
+}
+.place-items-center{
+  width: 1rem;
+  height: 1rem;
+}
+.inner-shadow {
+  box-shadow: inset 0px 80px 80px -20px rgba(0, 0, 0, 0.9);
+  /* border-radius: 80% 80% 10% 10% / 100% 100% 20% 20%; */
+}
