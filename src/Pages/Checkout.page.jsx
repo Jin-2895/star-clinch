@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import ZakirKhanImg from '../assets/celebrities/checkoutImage.png';
-import '../Pages/checkoutPage.css';
 import { Stepper, Step, Button, Typography } from '@material-tailwind/react';
 
 export default function CheckoutPage() {
