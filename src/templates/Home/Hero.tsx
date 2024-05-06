@@ -1,4 +1,3 @@
-// import Link from 'next/link';
 import { HeroOneButton } from '@/hero/HeroOneButton';
 import { Section } from '@/layout/Section';
 

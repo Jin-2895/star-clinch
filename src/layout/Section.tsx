@@ -6,13 +6,15 @@ type ISectionProps = {
   yPadding?: string;
   innerYPadding?: string;
   innerXPadding?: string;
+  screen?:string;
+  xMargin?:string;
   children: ReactNode;
 };
 
 const Section = (props: ISectionProps) => (
   <div
-    className={`mx-auto max-w-screen-xxl relative  ${
-      props.yPadding ? props.yPadding : ''
+    className={`${props.xMargin ?props.xMargin : "mx-auto"} ${props.screen ? props.screen : "max-w-screen-xxl"} relative  ${
+      props.yPadding
     }`}
   >
     {(props.title || props.description) && (
