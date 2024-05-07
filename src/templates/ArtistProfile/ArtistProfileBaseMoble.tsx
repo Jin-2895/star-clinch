@@ -12,9 +12,9 @@ const ArtistProfileBaseMobile = () => {
   return (
     <div className="text-gray-600 antialiased">
       <Meta title={AppConfig.title} description={AppConfig.description} />
-      {/* <Navbar /> */}
+      <Navbar />
       <ArtistProfileMobile />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

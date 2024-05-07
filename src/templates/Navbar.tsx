@@ -3,15 +3,28 @@ import { useState } from "react";
 
 import { Section } from "@/layout/Section";
 import { NavbarTwoColumns } from "@/navigation/NavbarTwoColumns";
+import { MdMenu } from "react-icons/md";
 
 import { Logo } from "./Logo";
+import { Drawer, IconButton, Typography } from "@material-tailwind/react";
+import MyNavbar from "./SingleArtist/Components/MobileNav";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 
   return (
-      <Section yPadding="py-6">
-        <NavbarTwoColumns logo={<Logo xl />}>
+    <Section yPadding="py-6 px-10">
+      <NavbarTwoColumns logo={<Logo xl />}>
+        {/* <div className="block lg:hidden">
+          <MdMenu
+            className="text-white"
+            onClick={() => setDrawerOpen(!drawerOpen)}
+          />
+        </div> */}
+        <MyNavbar  />
+
+        <div className="hidden lg:flex gap-4">
           <div>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -152,8 +165,23 @@ const Navbar = () => {
           <div className="transition-all duration-300 hover:text-orange-600">
             <Link href="/">Post Requirement</Link>
           </div>
-        </NavbarTwoColumns>
-      </Section>
+        </div>
+      </NavbarTwoColumns>
+      {/* <Drawer
+        placement="top"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(!drawerOpen)}
+        className="p-4"
+        children={
+          <div className="flex items-center justify-between px-4 pb-2">
+            <h1>Contact Us</h1>
+          </div>
+        }
+        placeholder={""}
+        onPointerEnterCapture={null}
+        onPointerLeaveCapture={null}
+      /> */}
+    </Section>
   );
 };
 
