@@ -16,13 +16,7 @@ const Navbar = () => {
   return (
     <Section yPadding="py-6 px-10">
       <NavbarTwoColumns logo={<Logo xl />}>
-        {/* <div className="block lg:hidden">
-          <MdMenu
-            className="text-white"
-            onClick={() => setDrawerOpen(!drawerOpen)}
-          />
-        </div> */}
-        <MyNavbar  />
+        <MyNavbar />
 
         <div className="hidden lg:flex gap-4">
           <div>

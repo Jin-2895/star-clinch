@@ -4,18 +4,17 @@ import { useState } from "react";
 
 type Props = {
   open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<any>>
-}
+  setOpen: React.Dispatch<React.SetStateAction<any>>;
+};
 
-function MobileNav({ open, setOpen } : Props) {
+function MobileNav({ open, setOpen }: Props) {
   return (
     <div
-      className={`absolute top-0 -left-[50px] h-screen w-screen bg-black md:hidden transform ${
-        open ? "-translate-x-0" : "-translate-x-full"
+      className={`fixed top-0 right-0 h-screen  bg-black md:hidden transform ${
+        open ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 ease-in-out `}
     >
-     
-      <div className="flex flex-col ml-4 justify-center items-center gap-4">
+      <div className="flex flex-col justify-center h-full ml-6">
         <Link className="text-xl font-medium my-4" href="/">
           <h1
             onClick={() => setOpen(!open)}
@@ -50,16 +49,13 @@ function MobileNav({ open, setOpen } : Props) {
         </Link>
       </div>
       <div className="flex justify-center gap-3 py-11 ml-4">
-        <div
-        >
+        <div>
           {/* <Image width={40} height={40} src={facebook} alt="facebook" /> */}
         </div>
-        <div
-        >
+        <div>
           {/* <Image width={40} height={40} src={instagram} alt="instagram" /> */}
         </div>
-        <div
-        >
+        <div>
           {/* <Image width={40} height={40} src={tiktok} alt="tiktok" /> */}
         </div>
       </div>
@@ -72,10 +68,7 @@ export default function MyNavbar() {
   return (
     <nav className="container mx-auto flex  lg:hidden flex-row filter bg-opacity-96 px-3 h-[4rem] items-center">
       <MobileNav open={open} setOpen={setOpen} />
-      <div
-        
-        className="md:w-2/12 w-9/12 flex justify-end items-center lg:hidden"
-      >
+      <div className="md:w-2/12 w-9/12 flex justify-end items-center lg:hidden">
         <div
           className="z-50 flex relative w-8 h-4 flex-col justify-between items-center md:hidden"
           onClick={() => {
