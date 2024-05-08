@@ -7,7 +7,7 @@ type Props = {
 
 const CelebrityCardMobile = (props: Props) => {
   return (
-    <div className="relative flex flex-col justify-start max-h-[530px] h-screen w-full max-w-[342px] rounded-xl overflow-hidden shadow-lg ">
+    <div className="relative flex flex-col justify-start max-h-[530px] h-screen w-full max-w-[343px] rounded-xl overflow-hidden shadow-lg ">
       <div className=" w-full overflow-hidden rounded-t-full  ">
         <Image
           width={1000}
