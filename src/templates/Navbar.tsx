@@ -3,15 +3,13 @@ import { useState } from "react";
 
 import { Section } from "@/layout/Section";
 import { NavbarTwoColumns } from "@/navigation/NavbarTwoColumns";
-import { MdMenu } from "react-icons/md";
 
 import { Logo } from "./Logo";
-import { Drawer, IconButton, Typography } from "@material-tailwind/react";
+
 import MyNavbar from "./SingleArtist/Components/MobileNav";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 
   return (
     <Section yPadding="py-6 px-10">
