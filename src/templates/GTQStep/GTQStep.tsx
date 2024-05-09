@@ -12,8 +12,10 @@ const GTQStep = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [verify, setVerify] = useState<boolean>(false);
 
+  console.log(verify, isFirstStep)
+
   const handleNext = () => !isLastStep && setActiveStep(cur => cur + 1);
-  const handlePrev = () => !isFirstStep && setActiveStep(cur => cur - 1);
+  // const handlePrev = () => !isFirstStep && setActiveStep(cur => cur - 1);
 
   return (
     <Section>
@@ -100,7 +102,7 @@ const GTQStep = () => {
                               className="text-white text-lg leading-[21.78px]"
                               htmlFor="occasion"
                             >
-                              What's the occasion?
+                              What&apos;s the occasion?
                             </label>
                             <input
                               id="occasion"
@@ -192,7 +194,7 @@ const GTQStep = () => {
                               className="text-white text-lg leading-[21.78px]"
                               htmlFor="event-date"
                             >
-                              Email {'('}We Don't Spam{')'}
+                              Email {'('}We Don&apos;t Spam{')'}
                             </label>
                             <input
                               id="email"
@@ -321,7 +323,7 @@ const GTQStep = () => {
               <p className="text-gray-400 mb-4">00:13</p>
 
               <div className="flex flex-col items-center gap-2 my-6">
-                <p className="text-gray-400">Didn't receive the OTP ?</p>
+                <p className="text-gray-400">Didn&lsquo;t receive the OTP ?</p>
                 <div className="flex gap-4 items-center">
                   <svg
                     width="29"
@@ -330,7 +332,7 @@ const GTQStep = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g clip-path="url(#clip0_25_3473)">
+                    <g clipPath="url(#clip0_25_3473)">
                       <path
                         d="M1.09801 14.2614C1.09735 16.6139 1.71685 18.911 2.89482 20.9357L0.985352 27.8534L8.1201 25.9972C10.0935 27.0632 12.3045 27.6217 14.5514 27.6218H14.5573C21.9745 27.6218 28.0124 21.633 28.0155 14.2719C28.0169 10.7049 26.6183 7.35081 24.077 4.82733C21.5363 2.30408 18.1571 0.913737 14.5567 0.912109C7.13857 0.912109 1.10118 6.90064 1.09812 14.2614"
                         fill="url(#paint0_linear_25_3473)"
@@ -353,8 +355,8 @@ const GTQStep = () => {
                         y2="0.912109"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#1FAF38" />
-                        <stop offset="1" stop-color="#60D669" />
+                        <stop stopColor="#1FAF38" />
+                        <stop offset="1" stopColor="#60D669" />
                       </linearGradient>
                       <linearGradient
                         id="paint1_linear_25_3473"
@@ -364,8 +366,8 @@ const GTQStep = () => {
                         y2="0.428711"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#F9F9F9" />
-                        <stop offset="1" stop-color="white" />
+                        <stop stopColor="#F9F9F9" />
+                        <stop offset="1" stopColor="white" />
                       </linearGradient>
                       <clipPath id="clip0_25_3473">
                         <rect

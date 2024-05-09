@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { FaArrowRightLong } from 'react-icons/fa6';
 import Image from 'next/image';
+import React from 'react';
+import Link from 'next/link';
 
 type Props = {
   name?: string;
@@ -23,7 +25,7 @@ const CelebrityCardV3 = (props: Props) => {
           <Image
             width={1000}
             height={1000}
-            src={props.img}
+            src={props.img ? props.img : ""}
             className="w-full h-full p-2 rounded-t-full rounded-br-full"
             alt="Bharti Singh"
           />
@@ -32,20 +34,17 @@ const CelebrityCardV3 = (props: Props) => {
           <div className="font-normal leading-[58.09px] text-[48px] mb-2 text-white">
             Did you Know?
           </div>
-          <p className="text-center pt-6 font-normal text-[24px] leading-tight">
+          <p className="text-center pt-6 font-normal text-[24px] leading-tight text-white">
             Ali ASGAR was the most booked artist of this month with 8+ bookings
           </p>
         </div>
         <div className="pt-4 pb-2">
-          <button className="flex gap-4 items-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC]  py-4 px-6 rounded-full">
+          <Link href={"/artist-profile"} className="flex gap-4 items-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC]  py-4 px-6 rounded-full">
             <h1 className="text-[24px] font-normal">See Price and Book</h1>
             <FaArrowRightLong className="text-[22px]" />
-          </button>
+          </Link>
         </div>
       </div>
-      {/* <div className="absolute bottom-0 left-0 right-0 w-full h-auto">
-        <Image width={1000} height={1000} src={props.img} className="w-full" alt="Shadow" />
-      </div> */}
     </div>
   );
 }

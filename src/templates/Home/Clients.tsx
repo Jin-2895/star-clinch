@@ -20,17 +20,15 @@ type Props = {
 const Clients = (props: Props) => {
   return (
     <div>
-      {props.initial === '0%' && (
+      {props.initial === "0%" && (
         <div className="w-full flex flex-col justify-center items-center mt-24">
-        <h1 className="text-[100px] text-white">
-          Our Clients
-        </h1>
-        <div className="ml-72">
-        <HappySvg />
+          <h1 className="text-[100px] text-white">Our Clients</h1>
+          <div className="ml-72">
+            <HappySvg />
           </div>
-      </div>
+        </div>
       )}
-      
+
       <div className="relative w-full overflow-hidden">
         {/* Wrapping div for seamless looping */}
         <motion.div

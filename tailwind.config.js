@@ -1,4 +1,5 @@
-const withMT = require('@material-tailwind/html/utils/withMT');
+import withMT from '@material-tailwind/html/utils/withMT';
+
 
 module.exports = withMT({
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -28,10 +29,10 @@ module.exports = withMT({
       xl: '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      xxl: '1536px',
+      xxl: '1336px',
       // => @media (min-width: 1536px) { ... }
+      '3xl': '1536px',
       '4xl': '1636px',
-      // => @media (min-width: 1536px) { ... }
     },
     extend: {
       colors: {

@@ -1,13 +1,33 @@
 import { Section } from "@/layout/Section";
+import { motion } from "framer-motion";
+import React from 'react';
+
+
+const text = "We are the only VC Funded Ent-Tech startup in Asia".split(" ")
 
 const Funded = () => (
   <Section innerXPadding="10rem" yPadding="py-24">
     <div className="relative flex flex-col items-center justify-center font-bold text-white overflow-hidden">
       <div className=" relative flex w-[500px] flex-col items-center overflow-hidden mt-[15rem] z-10 gap-10">
         <div className="flex flex-col items-center justify-center p-12">
-          <h1 className="text-white text-[40px] text-center">
-            We are the only VC Funded Ent-Tech startup in Asia
+          <h1 className="text-center">
+            {text.map((el: string, i: number) => (
+                    <motion.span
+                    className="text-white text-[40px]"
+                      key={i}
+                      whileInView="visible"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.25,
+                        delay: i / 2,
+                      }}
+                    >
+                      {el}{" "}
+                    </motion.span>
+                  ))}
           </h1>
+          
           <button className="mt-10 text-[20px] px-10 py-6 border-[1px] rounded-full bg-gradient-to-br from-black via-gray-800 to-gray-900 border-gray-600 ">
             Read More
           </button>

@@ -1,11 +1,19 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Section } from "@/layout/Section";
+import Link from "next/link";
+import { Profile } from "@/types/types";
 
-const ArtistProfile = () => {
+type ArtistProfileProps = {
+  profile?: Profile
+}
+
+
+const ArtistProfile = ({profile} : ArtistProfileProps) => {
   const [activeTab, setActiveTab] = useState<number>(0);
+  console.log(profile)
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
@@ -20,22 +28,22 @@ const ArtistProfile = () => {
               className="text-2xl leading-[29.05px]"
               style={{ opacity: "0.5" }}
             >
-              All Categories {">"} Comedians
+              All Categories {">"} {profile?.artist?.category_name}
             </h1>
           </div>
-          <div className="flex items-center justify-center gap-24">
-            <div className="max-w-[535.54px] max-h-[626.68px] w-full h-full overflow-hidden rounded-t-full">
+          <div className="flex items-start justify-center gap-16">
+            <div className="min-w-[30rem] min-h-[44rem] max-w-[32rem] max-h-[44rem] overflow-hidden rounded-t-full">
               <Image
                 width={1000}
                 height={1000}
-                src="/celebrities/zakirkhan1.png"
-                className="w-full h-full object-contain"
-                alt="artist"
+                src={profile?.artist?.profile_pic ? profile?.artist?.profile_pic : ""}
+                className="object-cover min-w-[30rem] min-h-[44rem] max-w-[32rem] max-h-[44rem] hover:scale-110 duration-300 transition-all"
+                alt={profile?.artist?.professional_name ? profile?.artist?.professional_name : "Artist image"}
               />
             </div>
             <div className="my-auto flex flex-col gap-8 justify-start">
               <h1 className="text-[96px] leading-[116.18px] font-normal">
-                Zakir Khan
+                {profile?.artist?.professional_name ? profile?.artist?.professional_name : "-"}
               </h1>
               <button
                 className=" w-fit inline-flex items-center  justify-between gap-4 bg-transparent  rounded-full px-12 py-4 shadow-lg "
@@ -60,17 +68,14 @@ const ArtistProfile = () => {
               </button>
               <div className="flex flex-col gap-2">
                 <h1 className="text-[18px] leading-[21.78px] max-w-[482px]">
-                  Zakir Khan acted as a breath of fresh air in the comedy scene
-                  and has attracted Zakir Khan acted as a breath of fresh air in
-                  the comedy scene and has attracted Zakir Khan acted as a
-                  breath of fresh air in the comedy scene and has attracted...
+                  {profile?.artist?.description}
                 </h1>
                 <span>Read More</span>
               </div>
-              <button className="flex gap-4 items-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC] w-fit  py-4 px-6 rounded-full">
-                <h1 className="text-[24px] font-normal">Get a quote</h1>
-                <FaArrowRightLong className="text-[22px]" />
-              </button>
+              <Link href={"/gtq-step"} className="flex gap-4 items-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC] w-fit  py-4 px-6 rounded-full">
+                <h1 className="text-[24px] font-normal text-white">Get a quote</h1>
+                <FaArrowRightLong className="text-[22px] text-white" />
+              </Link>
             </div>
           </div>
         </div>
@@ -276,165 +281,168 @@ const ArtistProfile = () => {
           </div>
         </div>
       </div>
-      <div
-        className=" mx-auto rounded-[58px] bg-[#111121] py-8 relative mb-20 flex flex-col justify-center items-center"
-        style={{
-          borderTop: "2px solid",
-          borderColor: "rgba(26, 25, 52)",
-          boxShadow: "inset 0 20px 20px rgba(0, 0, 0, 0.6)",
-        }}
-      >
-        <div className="flex flex-col items-center">
-          <h1
-            className="text-[32px] leading-[38.73px] font-normal"
-            style={{ opacity: "0.6" }}
-          >
-            Tags of the Day
-          </h1>
-        </div>
-        <div className=" flex flex-wrap justify-center items-center gap-4 py-8 overflow-hidden">
-          <div className="flex gap-4">
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-          </div>
-          <div className="flex gap-4">
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-          </div>
-          <div className="flex gap-4">
-            <span className="  text-white  py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-          </div>
-          <div className="flex gap-4">
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-            <span className="  text-white py-2  text-center">
-              #Artist of the Day
-            </span>
-          </div>
-        </div>
-      </div>
+      {profile?.tags && (
+ <div
+ className=" mx-auto rounded-[58px] bg-[#111121] py-8 relative mb-20 flex flex-col justify-center items-center"
+ style={{
+   borderTop: "2px solid",
+   borderColor: "rgba(26, 25, 52)",
+   boxShadow: "inset 0 20px 20px rgba(0, 0, 0, 0.6)",
+ }}
+>
+ <div className="flex flex-col items-center">
+   <h1
+     className="text-[32px] leading-[38.73px] font-normal"
+     style={{ opacity: "0.6" }}
+   >
+     Tags of the Day
+   </h1>
+ </div>
+ <div className=" flex flex-wrap justify-center items-center gap-4 py-8 overflow-hidden">
+   <div className="flex gap-4">
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+   </div>
+   <div className="flex gap-4">
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+   </div>
+   <div className="flex gap-4">
+     <span className="  text-white  py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+   </div>
+   <div className="flex gap-4">
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+     <span className="  text-white py-2  text-center">
+       #Artist of the Day
+     </span>
+   </div>
+ </div>
+</div>
+      )}
+     
       </Section>
   );
 };

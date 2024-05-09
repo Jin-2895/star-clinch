@@ -3,6 +3,7 @@ import { FaFacebook } from "react-icons/fa6";
 import { TfiTwitterAlt } from 'react-icons/tfi';
 import { BsYoutube } from 'react-icons/bs';
 import { IoLogoInstagram } from 'react-icons/io5';
+import React from "react";
 
 const Footer = () => (
   <Background color="bg-[#080810]">
@@ -17,7 +18,7 @@ const Footer = () => (
                   Your gateway to celebrity enchantment.
                 </h1>
                 <h1 className="text-[24px] leading-tight text-white">
-                  India's Largest Marketplace for Professional Artists-
+                  India&apos;s Largest Marketplace for Professional Artists-
                   Starclinch
                 </h1>
               </div>

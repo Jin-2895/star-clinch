@@ -23,7 +23,7 @@ const FollowInstagram = () => {
               Your gateway to celebrity enchantment.
             </h1>
             <h1 className="text-[24px] leading-[29.05px]">
-              India's Largest Marketplace for Professional Artists-
+              India&apos;s Largest Marketplace for Professional Artists-
               Starclinch
             </h1>
           </div>

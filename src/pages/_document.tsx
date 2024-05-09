@@ -1,5 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-
+import React from 'react';
 import { AppConfig } from '../utils/AppConfig';
 
 // Need to create a custom _document because i18n support is not compatible with `next export`.

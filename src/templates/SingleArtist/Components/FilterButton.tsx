@@ -1,26 +1,24 @@
 import { HiMiniAdjustmentsHorizontal } from 'react-icons/hi2';
+import React from 'react';
 
 type Props = {
-  num?: number
+  num?: number;
+  filterName?:string;
 }
 
 const FilterButton = (props: Props) => {
   return (
-    <button
-      className=" inline-flex items-center justify-between gap-4 bg-gradient-to-r from-black via-gray-900 to-black  rounded-full px-8 py-2 shadow-lg "
-      style={{
-        background:
-          'linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.24) 44%, rgba(255, 255, 255, 0) 100%), linear-gradient(to right, #000000, #000000 44%, #000000)',
-        border: '1px solid',
-        borderColor:
-          'linear-gradient(to right, #777C96 19%, #FFFFFF 100%, #777C96 19%)',
-      }}
-    >
+    <div className='bg-gradient-to-r from-gray-500 to-gray-800 p-px rounded-full'>
+      <button
+      className=" inline-flex items-center justify-between gap-4 rounded-full px-9 py-3 shadow-lg bg-gradient-to-r from-black via-gray-900 to-black">
       <h1 className="text-white text-[18px] font-normal leading-[21.78px]">
-        Filter {props.num}
+        {props.filterName ? props.filterName : "Filter"} {props.num}
       </h1>
+      {!props.filterName && (
       <HiMiniAdjustmentsHorizontal className="text-white text-lg" />
+      )}
     </button>
+    </div>
   );
 }
 

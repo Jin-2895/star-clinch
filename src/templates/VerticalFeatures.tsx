@@ -1,5 +1,6 @@
 import { VerticalFeatureRow } from '../feature/VerticalFeatureRow';
 import { Section } from '../layout/Section';
+import React from 'react';
 
 const VerticalFeatures = () => (
   <Section

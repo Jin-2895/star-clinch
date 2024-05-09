@@ -1,12 +1,18 @@
 import Link from "next/link";
 import { useState } from "react";
-
+import React from 'react';
 import { Section } from "@/layout/Section";
 import { NavbarTwoColumns } from "@/navigation/NavbarTwoColumns";
 
 import { Logo } from "./Logo";
+import { Category, Main } from "@/types/types";
 
-const Navbar = () => {
+type INavbarProps = {
+  categoriesData?: Main | null | undefined
+  categories?: Category[] | null | undefined
+}
+
+const Navbar = ({categoriesData, categories}: INavbarProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -36,103 +42,19 @@ const Navbar = () => {
             </button>
             {isOpen ? (
               <div className="absolute right-6 top-[4.5rem] z-10 w-[80rem] overflow-hidden rounded-xl bg-gradient-to-b from-[#080810] to-[#151526] p-[2px]">
-                <div className="relative">
-                  <div>
-                    <div className="grid grid-cols-4 gap-12 rounded-xl  p-6 ">
-                      <div className="flex flex-col gap-10">
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Anchor/Emcee</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Instrumentalist</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Dj</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Live Brancd</Link>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-10">
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Makeup-Artist/Stylist</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Photo/Videographer</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Speaker</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Celebrities Appearance</Link>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-10">
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Dancer/Troupe</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Comedian</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Magician</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Model</Link>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-10">
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Singer</Link>
-                        </div>
-                        <div
-                          role="menuitem"
-                          className="cursor-pointer transition-all duration-300 hover:text-orange-600"
-                        >
-                          <Link href="/">Variety Artist</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div className="grid grid-cols-4 gap-12 rounded-xl  p-6">
+                      {categoriesData && categoriesData?.categories?.map(((category: Category) =>  (
+                            <Link key={category.id} className="cursor-pointer transition-all duration-300 hover:text-orange-600" href={{
+                              pathname: `/various-artists/${category.slug}`,
+                              query: {  category: JSON.stringify(category) }
+                            }} >{category.name}</Link>
+                        )))}
+                        {categories && categories?.map(((category: Category) =>  (
+                            <Link key={category.id} className="cursor-pointer transition-all duration-300 hover:text-orange-600" href={{
+                              pathname: `/various-artists/${category.slug}`,
+                              query: {  category: JSON.stringify(category) }
+                            }} >{category.name}</Link>
+                        )))}
                   <div className="absolute flex -top-10 -left-24 justify-center items-center -z-10">
                     <div className="w-[25rem] h-[25rem] rounded-full bg-gradient-to-b from-[#FF81E31F] to-[#00000000] bg-opacity-100/50 backdrop-blur-xl"></div>
                   </div>

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-
+import React from "react";
 import CelebOne from "@/public/celebrities/CelebOne";
 import CelebOneCopy from "@/public/celebrities/CelebOneCopy";
 import Celebthree from "@/public/celebrities/Celebthree";

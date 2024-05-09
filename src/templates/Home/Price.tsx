@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { Section } from "@/layout/Section";
 import RightArrow from "@/icons/RightArrow";
+import React from 'react';
+import Link from "next/link";
 
 const Price = () => (
   <Section>
-    <div className="">
+    <div className="mt-24">
       <div className="flex flex-row gap-4 max-h-[350px] py-4 px-6">
         <div>
           <Image
@@ -133,11 +135,11 @@ const Price = () => (
           </div>
         </div>
         <div>
-        <button className="flex flex-row gap-4 text-[24px] text-white justify-center items-center bg-gradient-to-br from-[#F1663363] via-[#FD2D7D63] to-[#15121263] rounded-full px-14 py-4 border-[1px] border-gray-700">
+        <Link href="/various-artists" className="flex flex-row gap-4 text-[24px] text-white justify-center items-center bg-gradient-to-br from-[#F1663363] via-[#FD2D7D63] to-[#15121263] rounded-full px-14 py-4 border-[1px] border-gray-700">
           <p className="flex flex-col text-start"><span>See Price and</span>
           <span>Book Now</span></p>
           <RightArrow/>
-        </button>
+        </Link>
         </div>
       </div>
     </div>

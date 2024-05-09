@@ -1,5 +1,6 @@
 import { HeroOneButton } from '@/hero/HeroOneButton';
 import { Section } from '@/layout/Section';
+import React from 'react';
 
 import { Background } from '../../background/Background';
 

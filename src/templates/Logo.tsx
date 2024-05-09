@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import React from 'react';
 
 // import { AppConfig } from '../utils/AppConfig';
 import LogoImage from '../../public/logo/logo.png';

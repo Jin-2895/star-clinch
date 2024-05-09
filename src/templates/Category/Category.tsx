@@ -1,7 +1,7 @@
-import { useState } from "react";
 import Image from "next/image";
 import { CategoryCarousel } from "./CategoryCarousel";
 import { Section } from "@/layout/Section";
+import React, { useState } from "react";
 
 const Category = () => {
   const [carouselVisible, setCarouselVisible] = useState<boolean>(false);

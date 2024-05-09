@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-const Meta = (props: Props) => {
+const Meta = () => {
   return (
     <svg
       width="199"

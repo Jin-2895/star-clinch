@@ -1,19 +1,14 @@
-import React from 'react';
+import React from "react";
+import { SingleArtist } from "./SingleArtist";
+import { VariousArtist } from "@/types/types";
 
-import { Meta } from '@/layout/Meta';
-import { Footer } from '@/templates/Footer';
-import { Navbar } from '@/templates/Navbar';
-import { AppConfig } from '@/utils/AppConfig';
-import { SingleArtist } from './SingleArtist';
+type ISingleArtistProps = {
+  data?: VariousArtist | null | undefined;
+}
 
-const SingleArtistBase = () => {
+const SingleArtistBase = ({data}: ISingleArtistProps) => {
   return (
-    <div className="text-gray-600 antialiased">
-      <Meta title={AppConfig.title} description={AppConfig.description} />
-      <Navbar />
-      <SingleArtist />
-      <Footer />
-    </div>
+      <SingleArtist data={data}/>
   );
 };
 

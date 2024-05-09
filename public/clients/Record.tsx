@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-const Record = (props: Props) => {
+const Record = () => {
   return (
     <svg
       width="144"

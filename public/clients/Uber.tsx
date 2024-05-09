@@ -1,8 +1,7 @@
 import React from "react";
 
-type Props = {};
 
-const Uber = (props: Props) => {
+const Uber = () => {
   return (
     <svg
       width="130"
