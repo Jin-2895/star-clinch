@@ -8,7 +8,7 @@ type CelebrityCardProps = {
   list: ArtistList;
 };
 
-const CelebrityCard = ({list}: CelebrityCardProps) => {
+const CelebrityCard = ({ list }: CelebrityCardProps) => {
   return (
     <div className="flex flex-col gap-4 justify-start max-w-[469px] p-8 rounded-xl overflow-hidden shadow-lg bg-gradient-to-b from-[rgba(12,10,21,1)] via-[rgba(12,10,21,0.6)] to-[rgba(12,10,21,0)]">
       <div className="h-fit overflow-hidden min-w-[22rem] min-h-[22rem] max-w-[22rem] max-h-[22rem]  rounded-t-full rounded-br-full bg-gradient-to-b from-[#222249] via-[#040424] to-[#000003] backdrop-blur-xl opacity-80 hover:opacity-100 transition-all duration-300">
@@ -84,7 +84,10 @@ const CelebrityCard = ({list}: CelebrityCardProps) => {
       </div>
       <div className="h-fit">
         <Link
-          href={{ pathname: `/artist-profile/${list.slug}`, query: { profile: JSON.stringify(list) }}}
+          href={{
+            pathname: `/artist-profile/${list?.slug}`,
+            query: { profile: JSON.stringify(list) },
+          }}
           className="flex gap-4 items-center  justify-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC] hover:bg-gradient-to-b transition-all duration-400  py-4 px-6 rounded-full text-[24px] font-normal text-white"
         >
           Price and Book
