@@ -12,7 +12,6 @@ type ISingleArtistBaseMobileProps = {
 const SingleArtistBaseMobile = ({
   mobileData,
 }: ISingleArtistBaseMobileProps) => {
-  console.log("mobileData", mobileData);
   return (
     <Section>
       <div className="flex flex-col  w-full mx-auto  justify-center">
@@ -57,7 +56,7 @@ const SingleArtistBaseMobile = ({
             </form>
           </div>
         </div>
-        <div className="w-full h-full  sm:mx-auto grid lg:grid-cols-3 sm:grid-cols-2 gap-4 justify-items-center my-20">
+        <div className="w-full h-full  sm:mx-auto grid lg:grid-cols-3 sm:grid-cols-2 gap-4 justify-items-center my-10">
           {mobileData?.artist_list.map((list: ArtistList) => (
             <CelebrityCardMobile key={list?.id} list={list} />
           ))}

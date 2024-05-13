@@ -50,7 +50,7 @@ const SingleArtist = ({ data }: ISingleArtistProps) => {
                       background:
                         "linear-gradient(to right, rgb(255 255 255 / 5%) 0%, rgba(255, 255, 255, 0.24) 44%, rgb(255 255 255 / 0%) 100%), linear-gradient(to right, rgb(0 0 0 / 0%), rgb(0, 0, 0) 44%, rgb(0 0 0 / 0%)",
                     }}
-                    placeholder="Search for comedians like zakir khan etc etc"
+                    placeholder="Search for comedians like zakir khan etc "
                     required
                   />
                 </div>
