@@ -4,31 +4,30 @@ import { Navbar } from "@/templates/Navbar";
 import { SingleArtistBase } from "@/templates/SingleArtist/SingleArtistBase";
 import { SingleArtistBaseMobile } from "@/templates/SingleArtist/SingleArtistBaseMobile";
 import { VariousArtist } from "@/types/types";
-import { AppConfig } from "@/utils/AppConfig";
 import { GetServerSideProps } from "next";
 import React from "react";
 
-type IIndexProps ={
-  data?: VariousArtist | null | undefined
-}
+type IIndexProps = {
+  data?: VariousArtist | null | undefined;
+};
 
-const index = ({data}:IIndexProps) => {
+const index = ({ data }: IIndexProps) => {
   return (
     <div className="antialiased">
-      <Meta title={AppConfig.title} description={AppConfig.description} />
-      <Navbar categories={data?.categories}/>
-      <div className="hidden md:block">
-        <SingleArtistBase data={data}/>
+      <Meta title={data?.meta?.title} description={data?.meta?.description} />
+      <Navbar categories={data?.categories} />
+      <div className="hidden  md:block">
+        <SingleArtistBase data={data} />
       </div>
-      <div className="block md:hidden">
-        <SingleArtistBaseMobile />
+      <div className="block w-full md:hidden">
+        <SingleArtistBaseMobile mobileData={data} />
       </div>
       <Footer />
     </div>
   );
 };
 
-export const getServerSideProps:GetServerSideProps = async ({query}) => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   try {
     const { slug } = query;
     const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${slug}`, {
@@ -48,6 +47,6 @@ export const getServerSideProps:GetServerSideProps = async ({query}) => {
       },
     };
   }
-}
+};
 
 export default index;
