@@ -2,80 +2,24 @@ import { Section } from "@/layout/Section";
 import Image from "next/image";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+import { EffectCoverflow, Pagination, Navigation, Mousewheel } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Section3Heading, Section3Image, Section9Image } from "@/types/types";
+import SwiperCore from "swiper"
+import Link from "next/link";
 
-const data = [
-  {
-    sources:
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-    image:
-      "https://images.pexels.com/photos/15475219/pexels-photo-15475219/free-photo-of-hill-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "Big Buck Bunny",
-    text: "Perfectly organized event at pune and a huge shout out to StarClinch for this wonderful opportunity",
-    author: "arijit Singh",
-  },
-  {
-    sources:
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-    image:
-      "https://images.pexels.com/photos/22626143/pexels-photo-22626143/free-photo-of-a-woman-with-curly-hair-and-a-white-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "Elephant Dream",
-    text: "Perfectly organized event at pune and a huge shout out to StarClinch for this wonderful opportunity",
-    author: "Shreya Ghoshal",
-  },
-  {
-    sources:
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    image:
-      "https://images.pexels.com/photos/22858523/pexels-photo-22858523/free-photo-of-s-curve-chicago.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "For Bigger Blazes",
-    text: "Perfectly organized event at pune and a huge shout out to StarClinch for this wonderful opportunity",
-    author: "kishore kumar",
-  },
-  {
-    sources:
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-    image:
-      "https://images.pexels.com/photos/20985362/pexels-photo-20985362/free-photo-of-cerro-2.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "For Bigger Escape",
-    text: "Perfectly organized event at pune and a huge shout out to StarClinch for this wonderful opportunity",
-    author: "Sonu nigham",
-  },
-  {
-    sources:
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-    image:
-      "https://images.pexels.com/photos/19501709/pexels-photo-19501709/free-photo-of-black-and-white-shot-of-a-young-woman-standing-outside-in-the-dark-and-looking-away.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "For Bigger Fun",
-    text: "Perfectly organized event at pune and a huge shout out to StarClinch for this wonderful opportunity",
-    author: "Udit narayan",
-  },
-  {
-    sources:
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-    image:
-      "https://images.pexels.com/photos/21751135/pexels-photo-21751135/free-photo-of-black-and-white-photo-of-a-village-in-the-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "For Bigger Joyrides",
-    text: "Perfectly organized event at pune and a huge shout out to StarClinch for this wonderful opportunity",
-    author: "Neha kakkar",
-  },
-  {
-    sources:
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-    image:
-      "https://images.pexels.com/photos/22741673/pexels-photo-22741673/free-photo-of-self.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "For Bigger Meltdowns",
-    text: "Perfectly organized event at pune and a huge shout out to StarClinch for this wonderful opportunity",
-    author: "Neha kakkar",
-  },
-];
+type ICategoryProps = {
+  sectionNineHeadings: Section3Heading[] | null;
+  sectionNineImages: Section3Image[] | null;
+}
 
-const CategoryList = () => {
+const CategoryList = ({sectionNineHeadings, sectionNineImages}: ICategoryProps) => {
+
+  SwiperCore.use([Mousewheel])
 
   return (
     <Section xMargin="mx-0">
@@ -83,8 +27,10 @@ const CategoryList = () => {
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
+          mousewheel={true}
           centeredSlides={true}
           loop={true}
+          spaceBetween={10}
           slidesPerView={"auto"}
           coverflowEffect={{
             rotate: 0,
@@ -94,33 +40,68 @@ const CategoryList = () => {
           }}
           direction='vertical'
           pagination={{ el: ".swiper-pagination", clickable: true }}
-          // navigation={{
-          //   nextEl: ".swiper-button-next",
-          //   prevEl: ".swiper-button-prev"
-          // }}
           modules={[EffectCoverflow, Pagination, Navigation]}
-          className="swiper_container_1"
+          className="categoryListSwiper"
         >
-          {data.map((item: { image: string }, i: number) => (
+          {sectionNineImages && sectionNineImages.map((item: Section9Image, i: number) => (
             <SwiperSlide key={i}>
-              <div className="bg-gradient-to-r from-[#F4F4F4] via-transparent to-[#F4F4F4] p-1 rounded-[35px] ">
+              <div className="bg-gradient-to-r from-[#F4F4F4] via-transparent to-[#F4F4F4] p-1 rounded-[2rem] ">
               <Image
                 width={600}
                 height={600}
-                src={item.image}
-                alt="slide_image"
+                src={item.value}
+                alt={item.name}
               />
               </div>
-              <p className="absolute bottom-0 px-10 text-white text-[58px]">Artist</p>
+              <p className="absolute bottom-0 px-10 text-white text-[38px] capitalize">{item.name}</p>
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex justify-center items-start flex-col">
-          <h1 className="text-[58px] font-400 leading-[96.82px] text-white">Choose from </h1>
-          <h1 className="text-[58px] font-400 leading-[96.82px] text-white">100+</h1>
-          <h2 className="text-[58px] font-400 leading-[96.82px] text-white">Categories</h2>
+        <div className="flex flex-col gap-10 pl-[10rem] pt-[6rem]">
+          <div className="max-w-[30rem]">
+            <h1 className={`${sectionNineHeadings && sectionNineHeadings[0]?.name} text-white text-[80px] font-normal leading-[88.9px]`}>
+              {sectionNineHeadings && sectionNineHeadings[0]?.value}
+            </h1>
+          </div>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/celebrities"
+              className={`${ "sub_heading"} text-[30px] bg-gradient-to-r from-[#a56b81] from-20% via-[#FF8DB9] via-30% to-[#ff5b24] to-100% bg-clip-text text-transparent`}
+            >
+              { "Explore all categories"}
+            </Link>
+            <Link href="#">
+              <svg
+                width="44"
+                height="16"
+                viewBox="0 0 44 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44.7071 8.65535C45.0976 8.26482 45.0976 7.63166 44.7071 7.24114L38.3431 0.877174C37.9526 0.48665 37.3195 0.48665 36.9289 0.877174C36.5384 1.2677 36.5384 1.90086 36.9289 2.29139L42.5858 7.94824L36.9289 13.6051C36.5384 13.9956 36.5384 14.6288 36.9289 15.0193C37.3195 15.4098 37.9526 15.4098 38.3431 15.0193L44.7071 8.65535ZM0 8.94824H44V6.94824H0V8.94824Z"
+                  fill="url(#paint0_linear_3576_481)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_3576_481"
+                    x1="-0.66653"
+                    y1="7.9499"
+                    x2="51.401"
+                    y2="-2.68581"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#727272" stopOpacity="0" />
+                    <stop offset="0.742053" stopColor="#FF8DB9" />
+                    <stop offset="1" stopColor="#F86E42" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
+      
     </Section>
   );
 };

@@ -1,17 +1,17 @@
-import { HomeData } from "@/types/types";
-import { Base } from "../templates/Base";
-import React from "react";
-import { GetServerSideProps } from "next";
+import { CategoryBase } from '@/templates/Category/CategoryBase';
+import { HomeData } from '@/types/types';
+import { GetServerSideProps } from 'next';
+import React from 'react';
 
-type IIndexProps = {
+type IIndexProps= {
   data: HomeData
 }
 
-const Index = ({data}: IIndexProps) => {
-  return data ? <Base data={data} /> : null;
+const index = ({data}: IIndexProps) => {
+  return <CategoryBase data={data}/>;
 };
 
-export const getServerSideProps:GetServerSideProps = async () =>  {
+export const getServerSideProps:GetServerSideProps = async() => {
   try {
     const response = await fetch(`${process.env.REACT_APP_BASE_URL}`, {
       cache: "no-cache",
@@ -32,4 +32,4 @@ export const getServerSideProps:GetServerSideProps = async () =>  {
   }
 }
 
-export default Index;
+export default index;

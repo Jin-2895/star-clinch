@@ -7,6 +7,7 @@ import { CelebrityCard } from './Components/CelebrityCard';
 // import { CelebrityCardV3 } from './Components/CelebrityCardV3';
 // import { CelebrityCardV4 } from './Components/CelebrityCardV4';
 import { ArtistList, VariousArtist } from '@/types/types';
+import { CelebrityCardMobile } from './Components/CelebrityCardMobile';
 
 type ISingleArtistProps = {
   data?: VariousArtist | null | undefined;
@@ -27,7 +28,7 @@ const SingleArtist = ({data}: ISingleArtistProps) => {
           </p>
         </div>
         <div className="flex flex-col gap-14">
-          <div className="flex gap-8">
+          <div className="flex flex-wrap gap-8">
             <FilterButton num={1} />
             <FilterButton num={2} />
             <FilterButton num={3} />
@@ -56,9 +57,14 @@ const SingleArtist = ({data}: ISingleArtistProps) => {
           </div>
         </div>
       </div>
-      <div className="w-full max-w-[1660px] mx-auto grid grid-cols-3 justify-between justify-items-center my-20 gap-4">
-        {data?.artist_list.map((list: ArtistList) => (
+      <div className="w-full hidden lg:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 py-24 px-10 md:px-0 gap-4">
+        {data?.artist_list?.map((list: ArtistList) => (
         <CelebrityCard key={list.id} list={list}/>
+        ))}
+      </div>
+      <div className="w-full lg:hidden grid grid-cols-1  lg:py-24 lg:px-10 px-4 py-4 gap-4">
+        {data?.artist_list?.map((list: ArtistList) => (
+        <CelebrityCardMobile key={list.id} list={list} />
         ))}
       </div>
       {/* <div className="w-full max-w-[1660px] mx-auto grid grid-cols-3 justify-between justify-items-center gap-4 my-20">

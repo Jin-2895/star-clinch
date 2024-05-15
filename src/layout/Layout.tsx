@@ -3,12 +3,12 @@ import { Meta } from '../layout/Meta';
 import { AppConfig } from '../utils/AppConfig';
 import React, {ReactNode } from 'react';
 import { Navbar } from '@/templates/Navbar';
-import { Main } from '@/types/types';
+import { HomeData } from '@/types/types';
 
 
 type Props = {
   children?: ReactNode
-  categoriesData?:  Main | null | undefined;
+  categoriesData?:  HomeData | null | undefined;
 }
 
 

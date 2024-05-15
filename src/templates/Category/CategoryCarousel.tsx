@@ -1,198 +1,51 @@
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { FaArrowRightLong } from "react-icons/fa6";
+import Image from "next/image";
+import { Category } from "@/types/types";
+import Link from "next/link";
 
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { FaArrowRightLong } from 'react-icons/fa6';
-import Image from 'next/image';
-import type { Settings } from 'react-slick';
+type ICategoryCarouselProps = {
+  categories: Category[];
+};
 
-const CategoryCarousel = () => {
-  
-  const settings: Settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    className: 'center',
-    centerMode: true,
-    centerPadding: '0px',
-    arrows: true,
-  };
+const CategoryCarousel = ({ categories }: ICategoryCarouselProps) => {
 
   return (
-      <Slider {...settings}>
-          <div className="relative rounded-lg overflow-hidden px-3">
+    <Swiper
+      grabCursor={true}
+      centeredSlides={true}
+      slidesPerView={3}
+      spaceBetween={20}
+      className="celebritiesSwiper"
+    >
+      {categories?.map((categ) => (
+        <SwiperSlide key={categ.id}>
+          <div className="relative rounded-lg overflow-hidden">
             <Image
-              width={1000}
-              height={1000}
-              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[420px] h-[500px] object-cover"
-              src="/celebrities/zakirKhan.jpeg"
-              alt="Background Image"
+              width={800}
+              height={800}
+              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[350px] min-h-[600px] object-cover"
+              src={categ.category_banner_image}
+              alt={categ.name}
             />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <div className="mb-4">
-                <h2 className="text-[54px] leading-[65.35px] font-normal mb-2">
-                  Comedians
+            <div className="absolute bottom-0 bg-gradient-to-b from-transparent to-black w-full py-[12rem]"/>
+            <div className="absolute bottom-0 p-6 text-white">
+                <h2 className="text-[24px]  font-[300] mb-6 text-start">
+                  {categ.name}
                 </h2>
-                <p className="text-lg leading-[21.78px">
-                  Zakir Khan being the most booked artist in the category
-                </p>
-              </div>
-              <button className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 text-start">
-                <p>View</p>
+              <Link href={categ.slug} className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 transition-all duration-400 text-start"> 
+                View
                 <FaArrowRightLong color="white" />
-              </button>
+                </Link>
             </div>
           </div>
-          <div className="relative rounded-lg overflow-hidden px-3">
-            <Image
-            width={1000}
-              height={1000}
-              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[420px] h-[500px] object-cover"
-              src="/celebrities/zakirKhan.jpeg"
-              alt="Background Image"
-            />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <div className="mb-4">
-                <h2 className="text-[54px] leading-[65.35px] font-normal mb-2">
-                  Comedians
-                </h2>
-                <p className="text-lg leading-[21.78px">
-                  Zakir Khan being the most booked artist in the category
-                </p>
-              </div>
-              <button className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 text-start">
-                <p>View</p>
-                <FaArrowRightLong color="white" />
-              </button>
-            </div>
-          </div>
-          <div className="relative rounded-lg overflow-hidden px-3">
-            <Image
-            width={1000}
-              height={1000}
-              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[420px] h-[500px] object-cover"
-              src="/celebrities/zakirKhan.jpeg"
-              alt="Background Image"
-            />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <div className="mb-4">
-                <h2 className="text-[54px] leading-[65.35px] font-normal mb-2">
-                  Comedians
-                </h2>
-                <p className="text-lg leading-[21.78px">
-                  Zakir Khan being the most booked artist in the category
-                </p>
-              </div>
-              <button className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 text-start">
-                <p>View</p>
-                <FaArrowRightLong color="white" />
-              </button>
-            </div>
-          </div>
-          <div className="relative rounded-lg overflow-hidden px-3">
-            <Image
-            width={1000}
-              height={1000}
-              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[420px] h-[500px] object-cover"
-              src="/celebrities/zakirKhan.jpeg"
-              alt="Background Image"
-            />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <div className="mb-4">
-                <h2 className="text-[54px] leading-[65.35px] font-normal mb-2">
-                  Comedians
-                </h2>
-                <p className="text-lg leading-[21.78px">
-                  Zakir Khan being the most booked artist in the category
-                </p>
-              </div>
-              <button className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 text-start">
-                <p>View</p>
-                <FaArrowRightLong color="white" />
-              </button>
-            </div>
-          </div>
-          <div className="relative rounded-lg overflow-hidden px-3">
-            <Image
-            width={1000}
-              height={1000}
-              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[420px] h-[500px] object-cover"
-              src="/celebrities/zakirKhan.jpeg"
-              alt="Background Image"
-            />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <div className="mb-4">
-                <h2 className="text-[54px] leading-[65.35px] font-normal mb-2">
-                  Comedians
-                </h2>
-                <p className="text-lg leading-[21.78px">
-                  Zakir Khan being the most booked artist in the category
-                </p>
-              </div>
-              <button className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 text-start">
-                <p>View</p>
-                <FaArrowRightLong color="white" />
-              </button>
-            </div>
-          </div>
-          <div className="relative rounded-lg overflow-hidden px-3">
-            <Image
-            width={1000}
-              height={1000}
-              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[420px] h-[500px] object-cover"
-              src="/celebrities/zakirKhan.jpeg"
-              alt="Background Image"
-            />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <div className="mb-4">
-                <h2 className="text-[54px] leading-[65.35px] font-normal mb-2">
-                  Comedians
-                </h2>
-                <p className="text-lg leading-[21.78px">
-                  Zakir Khan being the most booked artist in the category
-                </p>
-              </div>
-              <button className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 text-start">
-                <p>View</p>
-                <FaArrowRightLong color="white" />
-              </button>
-            </div>
-          </div>
-          <div className="relative rounded-lg overflow-hidden px-3">
-            <Image
-            width={1000}
-              height={1000}
-              className="hover:scale-105 transition-transform duration-300 rounded-xl w-[420px] h-[500px] object-cover"
-              src="/celebrities/zakirKhan.jpeg"
-              alt="Background Image"
-            />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <div className="mb-4">
-                <h2 className="text-[54px] leading-[65.35px] font-normal mb-2">
-                  Comedians
-                </h2>
-                <p className="text-lg leading-[21.78px">
-                  Zakir Khan being the most booked artist in the category
-                </p>
-              </div>
-              <button className=" flex gap-4  h-[50px] items-center border-[1px] w-[150px] text-[22px] rounded-full border-white bg-transparent text-white px-8  hover:bg-pink-700 text-start">
-                <p>View</p>
-                <FaArrowRightLong color="white" />
-              </button>
-            </div>
-          </div>
-      </Slider>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
-}
+};
 
-export { CategoryCarousel }
+export { CategoryCarousel };

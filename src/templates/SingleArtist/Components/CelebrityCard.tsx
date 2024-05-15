@@ -1,6 +1,7 @@
 import { ArtistList } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
@@ -8,20 +9,24 @@ type CelebrityCardProps = {
   list: ArtistList;
 };
 
-const CelebrityCard = ({list}: CelebrityCardProps) => {
+const CelebrityCard = ({ list }: CelebrityCardProps) => {
+  const { slug } = useParams();
+
   return (
-    <div className="flex flex-col gap-4 justify-start max-w-[469px] p-8 rounded-xl overflow-hidden shadow-lg bg-gradient-to-b from-[rgba(12,10,21,1)] via-[rgba(12,10,21,0.6)] to-[rgba(12,10,21,0)]">
-      <div className="h-fit overflow-hidden min-w-[22rem] min-h-[22rem] max-w-[22rem] max-h-[22rem]  rounded-t-full rounded-br-full bg-gradient-to-b from-[#222249] via-[#040424] to-[#000003] backdrop-blur-xl opacity-80 hover:opacity-100 transition-all duration-300">
-        <Image
-          width={1000}
-          height={1000}
-          src={list?.profile_pic ? list?.profile_pic : ""}
-          className="w-full h-full object-cover flex justify-center text-center items-center  transition-all duration-300 cursor-pointer scale-100 hover:scale-110"
-          alt={list?.professional_name ? list?.professional_name : ""}
-        />
+    <div className="py-4 px-4 flex flex-col gap-4 justify-start rounded-[2.5rem] bg-[#06060C] bg-gradient-t-b from-white to-black backdrop-blur-xl">
+      <div className="h-fit overflow-hidden min-w-[22rem] min-h-[22rem] max-w-[22rem] max-h-[22rem]  rounded-t-full rounded-br-full mx-auto">
+        <Link href={`${slug}/${list.slug}`}>
+          <Image
+            width={1000}
+            height={1000}
+            src={list?.profile_pic ? list?.profile_pic : ""}
+            className="w-full h-full object-cover flex justify-center text-center items-center  transition-all duration-300 cursor-pointer scale-100 hover:scale-110"
+            alt={list?.professional_name ? list?.professional_name : ""}
+          />
+        </Link>
       </div>
       <div className="h-fit flex flex-col gap-2">
-        <div className="font-normal leading-[38.73px] text-[32px] mb-2 text-white">
+        <div className="font-normal leading-[38.73px] text-[32px] mb-2 min-h-[78px] text-white">
           {list?.professional_name ? list?.professional_name : ""}
         </div>
         <p
@@ -35,47 +40,59 @@ const CelebrityCard = ({list}: CelebrityCardProps) => {
           Recently booked <span className="font-bold">12 March</span>
         </p>
         {list?.usp ? (
-          <p className="text-lg font-normal text-white truncate w-[22rem]">
+          <p className="text-lg font-normal text-white line-clamp-2">
             {list?.usp}
           </p>
         ) : (
-          <p className="text-lg font-normal text-transparent truncate w-[22rem]">
+          <p className="text-lg font-normal text-transparent line-clamp-2">
             Not Available
           </p>
         )}
         <div className="flex flex-col gap-4 py-4">
           <div className="flex items-center">
-            <div className="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
-              <input
-                aria-labelledby="label1"
-                checked
-                type="radio"
-                name="radio"
-                className="checkbox appearance-none focus:opacity-100  focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none border rounded-full absolute cursor-pointer w-full h-full checked:border-none"
+            <svg
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                opacity="0.15"
+                cx="12"
+                cy="12.3848"
+                r="12"
+                fill="#D9D9D9"
               />
-              <div className="check-icon hidden bg-indigo-700 rounded-full w-full h-full "></div>
-            </div>
+            </svg>
+
             <label
               id="label1"
-              className="ml-2 text-sm leading-4 font-normal text-gray-800 dark:text-gray-100"
+              className="ml-2 text-sm leading-4 font-normal text-gray-200 dark:text-gray-100"
             >
               {list?.performance_duration ? list?.performance_duration : ""}
             </label>
           </div>
           <div className="flex items-center">
-            <div className="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
-              <input
-                aria-labelledby="label1"
-                checked
-                type="radio"
-                name="radio"
-                className="checkbox appearance-none focus:opacity-100  focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none border rounded-full absolute cursor-pointer w-full h-full checked:border-none"
+            <svg
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                opacity="0.15"
+                cx="12"
+                cy="12.3848"
+                r="12"
+                fill="#D9D9D9"
               />
-              <div className="check-icon hidden bg-indigo-700 rounded-full w-full h-full z-1"></div>
-            </div>
+            </svg>
+
             <label
               id="label1"
-              className="ml-2 text-sm leading-4 font-normal text-gray-800 dark:text-gray-100"
+              className="ml-2 text-sm leading-4 font-normal text-gray-200 dark:text-gray-100 line-clamp-2"
             >
               {list?.languages ? list?.languages : ""}
             </label>
@@ -84,7 +101,7 @@ const CelebrityCard = ({list}: CelebrityCardProps) => {
       </div>
       <div className="h-fit">
         <Link
-          href={{ pathname: `/artist-profile/${list.slug}`, query: { profile: JSON.stringify(list) }}}
+          href={`${slug}/${list.slug}`}
           className="flex gap-4 items-center  justify-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC] hover:bg-gradient-to-b transition-all duration-400  py-4 px-6 rounded-full text-[24px] font-normal text-white"
         >
           Price and Book

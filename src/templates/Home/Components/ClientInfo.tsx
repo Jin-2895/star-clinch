@@ -1,82 +1,62 @@
-"use client";
-import { Section2Video } from "@/types/types";
-import React, { SetStateAction, useRef, useState } from "react";
+import { Section5Data } from '@/types/types';
+import React, { useState } from 'react'
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import YouTube from "react-youtube";
+import SwiperCore from "swiper"
 
 type Props = {
-  sectionTwoVideos?: Section2Video[] | null;
-  children?: React.ReactNode[] | React.ReactNode;
-  indicator?: boolean;
-  autoSlide?: boolean;
-  autoSlideInterval?: number;
-  setSideText: React.Dispatch<SetStateAction<string[] | undefined>>;
-};
+  sectionFiveData?: Section5Data[] | null;
+}
 
-const DefaultCarousel = (props: Props) => {
-  // eslint-disable-next-line
-  const [player, setPlayer] = useState<any>(null);
-  const videoRef = useRef<YouTube | null>(null);
+SwiperCore.use([Navigation, Pagination])
+
+const ClientInfo = ({sectionFiveData}: Props) => {
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
-  // eslint-disable-next-line
-  const opts: any = {
-    height: "630",
-    width: "100%",
-    playerVars: {
-      autoplay: 0,
-      controls: 1,
-      enablejsapi: 1,
-      modestbranding: 1,
-      showinfo: 0,
-      related: 0,
-    },
-  };
-
-  //  eslint-disable-next-line
-  const onReady = (event: any) => {
-    setPlayer(event.target);
-  };
-
-  const onEnd = () => {
-    player.seekTo(0);
-    player.pauseVideo();
-  };
-
+  
   return (
     <>
-      <Swiper
-        navigation={{ prevEl, nextEl }}
-        modules={[Navigation]}
-        className="BannerVideo"
-      >
-        {props?.sectionTwoVideos &&
-          props?.sectionTwoVideos.map((slide: Section2Video, index: number) => {
-            let videoId: string | null | undefined = null;
-            if (slide.value.includes("youtube.com/shorts")) {
-              videoId = slide.value.split("/").pop();
-            } else {
-              const urlParams = new URLSearchParams(slide.value.split("?")[1]);
-              videoId = urlParams.get("v");
-            }
-            return (
-              <SwiperSlide key={`youtube-${index}`}>
-                <YouTube
-                  ref={videoRef}
-                  videoId={videoId ? videoId : ""}
-                  opts={opts}
-                  onReady={onReady}
-                  onEnd={onEnd}
-                  className={`video-stream-${index} rounded-tr-[10rem] rounded-bl-[10rem] object-fit overflow-hidden`}
-                />
-              </SwiperSlide>
-            );
-          })}
-      </Swiper>
-     
+      <div className="overflow-hidden relative  rounded-tr-[10rem] rounded-bl-[10rem] w-full">
+        <div className="w-full">
+          <Swiper
+            navigation={{ prevEl, nextEl }}
+            pagination={true}
+            className="clientInfo"
+          >
+            {sectionFiveData &&
+              sectionFiveData?.map(
+                (slide: Section5Data, index: number) => {
+                  return (
+                    <SwiperSlide key={`clientinfo-${index}`}>
+                    <div className={`${slide.name} text-white text-[50px] text-center relative py-24`}>
+                      {slide?.value}
+                      <svg
+                      className="absolute -z-10 top-16 left-12"
+                        width="96"
+                        height="75"
+                        viewBox="0 0 96 75"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g opacity="0.08">
+                          <path
+                            d="M20.184 0.448242C31.4294 0.448242 43.5398 8.5105 43.5398 30.3938V31.2576C43.5398 61.2031 22.2024 74.4482 3.17178 74.4482V60.3393C14.7055 60.3393 23.3558 53.4288 23.3558 41.6233H22.7791C10.092 41.6233 0 32.6973 0 20.028C0 8.22255 8.6503 0.448242 20.184 0.448242Z"
+                            fill="white"
+                          />
+                          <path
+                            d="M72.5315 0.448242C83.7769 0.448242 95.8873 8.5105 95.8873 30.3938V31.2576C95.8873 61.2031 74.5499 74.4482 55.5192 74.4482V60.3393C67.053 60.3393 75.7033 53.4288 75.7033 41.6233H75.1266C62.4395 41.6233 52.3475 32.6973 52.3475 20.028C52.3475 8.22255 60.9978 0.448242 72.5315 0.448242Z"
+                            fill="white"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                    </SwiperSlide>
+                  );
+                }
+              )}
+          </Swiper>
+        </div>
+      </div>
       <button
         type="button"
         ref={(node) => {
@@ -274,8 +254,18 @@ const DefaultCarousel = (props: Props) => {
           </defs>
         </svg>
       </button>
+      {/* <div className="absolute bottom-4 right-0 left-0 z-10">
+              <div className="flex items-center justify-center gap-2">
+                {sectionFiveData && sectionFiveData?.map((_, i: number) => (
+                  <div
+                    key={i}
+                    className={`transition-all h-3  bg-white rounded-full ${curr === i ? "p-1 w-[12rem]" : "bg-opacity-50 w-[6rem]"}`}
+                  />
+                ))}
+              </div>
+            </div> */}
     </>
-  );
-};
+  )
+}
 
-export { DefaultCarousel };
+export default ClientInfo;

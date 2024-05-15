@@ -37,6 +37,16 @@ module.exports = async (phase) => {
             protocol: 'https',
             hostname: "commondatastorage.googleapis.com",
             pathname: '**',
+          },
+          {
+            protocol: 'https',
+            hostname: "cdn.starclinch.in",
+            pathname: '**',
+          },
+          {
+            protocol: 'https',
+            hostname: "i.imgur.com",
+            pathname: '**',
           }
         ],
       },
@@ -92,6 +102,16 @@ module.exports = async (phase) => {
         {
           protocol: 'https',
           hostname: "commondatastorage.googleapis.com",
+          pathname: '**',
+        },
+        {
+          protocol: 'https',
+          hostname: "i.imgur.com",
+          pathname: '**',
+        },
+        {
+          protocol: 'https',
+          hostname: "cdn.starclinch.in",
           pathname: '**',
         }
       ],

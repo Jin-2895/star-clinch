@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Image from "next/image";
+import { Section11Heading } from "@/types/types";
 
 const data = [
   {
@@ -80,9 +81,11 @@ const data = [
   },
 ];
 
+type IRecentShows = {
+  sectionElevenHeadings: Section11Heading[] | null;
+}
 
-
-const RecentShows = () => {
+const RecentShows = ({sectionElevenHeadings}: IRecentShows) => {
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
 
@@ -90,8 +93,10 @@ const RecentShows = () => {
     <Section marque={true} screen="grid grid-cols-12">
       <CTABanner
         titleflex="flex justify-center items-center text-center"
-        title="Recent shows made star-studded via StarClinch"
+        title={sectionElevenHeadings && sectionElevenHeadings[0]?.value}
+        name={sectionElevenHeadings && sectionElevenHeadings[0]?.name}
         style=""
+        titleStyles="text-start max-w-[40rem]"
         section={
           <div className="w-full">
               <Swiper
@@ -143,7 +148,7 @@ const RecentShows = () => {
                 )}
               </Swiper>
               <button
-                className="text-white z-20 absolute top-[50%] left-0 cursor-pointer h-20 w-20"
+                className="text-white z-20 absolute top-[70%] left-0 cursor-pointer h-20 w-20"
                 ref={(node) => setPrevEl(node)}
               >
                 <svg
@@ -240,7 +245,7 @@ const RecentShows = () => {
                 </svg>
               </button>
               <button
-                className="text-white z-20 absolute top-[50%] right-0 cursor-pointer h-20 w-20"
+                className="text-white z-20 absolute top-[70%] right-0 cursor-pointer h-20 w-20"
                 ref={(node) => setNextEl(node)}
               >
                 <svg

@@ -6,8 +6,8 @@ import React from 'react';
 import { AppConfig } from '../utils/AppConfig';
 
 type IMetaProps = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   canonical?: string;
 };
 
@@ -18,6 +18,7 @@ const Meta = (props: IMetaProps) => {
     <>
       <Head>
         <meta charSet="UTF-8" key="charset" />
+        
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1"
@@ -47,6 +48,7 @@ const Meta = (props: IMetaProps) => {
           href={`${router.basePath}/favicon.ico`}
           key="favicon"
         />
+        
       </Head>
       <NextSeo
         title={props.title}

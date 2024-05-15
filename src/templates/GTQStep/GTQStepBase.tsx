@@ -1,19 +1,22 @@
-import React from 'react';
+import React from "react";
+import { GTQStep } from "./GTQStep";
+import { Profile } from "@/types/types";
+import { GQTStepMobile } from "./GTQStepMobile";
 
-import { Meta } from '@/layout/Meta';
-import { Footer } from '@/templates/Footer';
-import { Navbar } from '@/templates/Navbar';
-import { AppConfig } from '@/utils/AppConfig';
-import { GTQStep } from './GTQStep';
+type IGTQStepBase = {
+  profile: Profile;
+};
 
-const GTQStepBase = () => {
+const GTQStepBase = ({ profile }: IGTQStepBase) => {
   return (
-    <div className="text-gray-600 antialiased">
-      <Meta title={AppConfig.title} description={AppConfig.description} />
-      <Navbar />
-      <GTQStep />
-      <Footer />
-    </div>
+    <>
+      <div className="hidden lg:block">
+        <GTQStep profile={profile} />
+      </div>
+      <div className="block lg:hidden">
+        <GQTStepMobile profile={profile} />
+      </div>
+    </>
   );
 };
 

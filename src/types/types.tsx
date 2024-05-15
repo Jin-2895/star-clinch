@@ -26,6 +26,99 @@ export interface SubCategory {
   value: string;
 }
 
+export interface Section1Item {
+  name?: string;
+  value?: string | null;
+}
+
+export interface Section2Video {
+  name: string;
+  value: string;
+}
+
+export interface Section3Heading {
+  name: string;
+  value: string;
+  button_text: string;
+}
+
+export interface Section3Image {
+  name: string;
+  value: string;
+}
+
+export interface Section4Image {
+  name: string;
+  value: string;
+}
+
+export interface Section5Data {
+  name: string;
+  value: string;
+}
+
+export interface Section6Data {
+  name: string;
+  value: string;
+}
+
+export interface Section7Heading {
+  name: string;
+  value: string;
+  button_text: string;
+}
+
+export interface Section8Image {
+  name: string;
+  value: string;
+}
+
+export interface Section9Image {
+  name: string;
+  value: string;
+}
+
+export interface Section10Image {
+  name: string;
+  category: string;
+  image: string;
+  slug: string;
+}
+
+export interface Section11Heading {
+  name: string;
+  value: string;
+}
+
+export interface Section2Heading { 
+  name: string; 
+  value: string 
+}
+
+export interface HomeData {
+  categories: Category[];
+  'section-1': Section1Item[];
+  'section-2-heading': Section2Heading[];
+  'section-2-videos': Section2Video[];
+  'section-3-heading': Section3Heading[];
+  'section-3-images': Section3Image[];
+  'section_4_heading': Section3Heading[];
+  'section_4_images': Section4Image[];
+  'section_5_heading': Section3Heading[];
+  'section_5_data ': Section5Data[];
+  'section_6_heading': Section3Heading[];
+  'section_6_data': Section6Data[];
+  'section_7_heading': Section7Heading[];
+  'section_8_heading': Section3Heading[];
+  'section_8_images': Section8Image[];
+  'section_9_heading': Section3Heading[];
+  'section_9_images': Section9Image[];
+  'section_10_heading': Section3Heading[];
+  'section_10_images': Section10Image[];
+  'section_11_heading': Section11Heading[];
+}
+
+
 export interface Main {
   categories: Category[];
   sub_categories: SubCategory[];

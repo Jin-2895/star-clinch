@@ -47,14 +47,14 @@ const marqueeVariants2 = {
 
 const Section = (props: ISectionProps) => (
   <div
-    className={`${props.xMargin ? props.xMargin : "mx-auto"} ${props.screen ? props.screen : "max-w-screen-xl"} relative ${
-      props.yPadding
+    className={`${props.xMargin ? props.xMargin : "mx-auto"} ${props.screen ? props.screen : "max-w-screen-4xl"} relative ${
+      props.yPadding ? props.yPadding: ""
     }`}
   >
     
     {(props.title || props.description) && (
       <div
-        className={`mb-12 ${props.titleflex? props.titleflex : "text-center"} ${props?.innerYPadding ? props?.innerYPadding : ""} ${props?.innerXPadding ? props?.innerXPadding : ""}`}
+        className={`mb-12 ${props.titleflex ? props.titleflex : "text-center"} ${props?.innerYPadding ? props?.innerYPadding : ""} ${props?.innerXPadding ? props?.innerXPadding : ""}`}
       >
         {props.title && (
           <h2 className={`text-4xl font-bold text-gray-900 ${props?.titleflex ? props?.titleflex : ""}`}>{props.title}</h2>
@@ -65,8 +65,8 @@ const Section = (props: ISectionProps) => (
       </div>
     )}
     {props.marque && (
-      <div className="relative w-full overflow-hidden col-span-3">
-        <div className="absolute left-0 top-[15%] w-full rotate-[-35deg]">
+      <div className="relative w-full overflow-hidden col-span-2">
+        <div className="absolute left-0 top-[7%] w-full rotate-[-40deg]">
       {/* 3. Using framer motion */}
 
       <motion.div
@@ -206,8 +206,8 @@ const Section = (props: ISectionProps) => (
     )}
     {props.children}
     {props.marque && (
-      <div className="relative w-full overflow-hidden col-span-3">
-         <div className="rotate-[-35deg] w-full absolute right-0 bottom-[5%]">
+      <div className="relative w-full overflow-hidden col-span-2">
+         <div className="rotate-[-40deg] w-full absolute right-0 bottom-[7%]">
        {/* 3. Using framer motion */}
        <motion.div
          className=" flex flex-row gap-4 bg-gradient-to-b from-transparent via-[#FFFFFF20] to-transparent border-2 border-black py-2 w-full min-w-[200rem]"

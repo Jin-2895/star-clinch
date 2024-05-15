@@ -1,149 +1,81 @@
 import Image from "next/image";
 import { Section } from "@/layout/Section";
 import RightArrow from "@/icons/RightArrow";
-import React from 'react';
+import React from "react";
 import Link from "next/link";
+import { Section3Heading, Section3Image } from "@/types/types";
 
-const Price = () => (
-  <Section>
-    <div className="mt-24">
-      <div className="flex flex-row gap-4 max-h-[350px] py-4 px-6">
-        <div>
-          <Image
-            className="rounded-bl-full rounded-t-full h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model1"
-            width={400}
-            height={124}
-          />
+type IPriceProps = {
+  sectionThreeHeadings: Section3Heading[] | null;
+  sectionThreeImages: Section3Image[] | null;
+};
+
+const Price = ({ sectionThreeHeadings, sectionThreeImages }: IPriceProps) => {
+
+  const borderStyling: string[] = [
+    "rounded-bl-full rounded-t-full",
+    "rounded-xl",
+    "rounded-bl-full rounded-t-full",
+    "rounded-xl",
+    "rounded-xl",
+    "rounded-tr-[45%]",
+    "rounded-xl",
+    "rounded-tr-[45%]",
+    "rounded-tl-[45%]",
+    "rounded-t-full",
+    "rounded-tl-[45%]",
+    "rounded-t-full",
+    "rounded-tl-full rounded-t-full",
+    "rounded-bl-full rounded-t-full",
+    "rounded-bl-full rounded-t-full",
+    "rounded-bl-full rounded-t-full",
+    "rounded-bl-full rounded-t-full",
+    "rounded-bl-full rounded-t-full"
+  ];
+
+  return (
+    <Section yPadding="pt-12 px-[10rem]">
+      <div className="relative h-fit">
+        <div className="grid grid-cols-4 gap-4 ">
+          {sectionThreeImages?.map(
+            (list: { name: string; value: string }, index: number) => (
+              <div
+                key={index}
+                className="max-h-[340px] justify-center items-center flex"
+              >
+                <Image
+                  className={`${borderStyling[`${index}`]} h-[100%] object-cover`}
+                  src={list.value}
+                  alt={list.name}
+                  width={320}
+                  height={320}
+                />
+              </div>
+            )
+          )}
         </div>
-        <div>
-          <Image
-            className="rounded-2xl h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model2"
-            width={400}
-            height={124}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-bl-full rounded-t-full h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model3"
-            width={400}
-            height={124}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-bl-full rounded-t-full h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model4"
-            width={400}
-            height={124}
-          />
-        </div>
-        <div></div>
-      </div>
-      <div className="flex flex-row gap-4 max-h-[350px] py-4 px-6">
-        <div>
-          <Image
-            className="rounded-2xl h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model1"
-            width={400}
-            height={304}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-tr-[50%] h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model2"
-            width={400}
-            height={304}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-2xl h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model3"
-            width={400}
-            height={304}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-tr-[50%] h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model4"
-            width={400}
-            height={304}
-          />
-        </div>
-      </div>
-      <div className="flex flex-row gap-4 max-h-[350px] py-4 px-6">
-        <div>
-          <Image
-            className="rounded-l-[50%] h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model1"
-            width={400}
-            height={304}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-full h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model2"
-            width={400}
-            height={304}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-l-[50%] h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model3"
-            width={400}
-            height={304}
-          />
-        </div>
-        <div>
-          <Image
-            className="rounded-full h-[100%] object-cover"
-            src="/celebrities/artist.png"
-            alt="Model4"
-            width={400}
-            height={304}
-          />
-        </div>
-        
-      </div>
-      <div className="absolute flex flex-row justify-between items-center bg-gradient-to-b from-transparent to-black h-70 w-full z-10 bottom-4 px-10 backdrop-blur-[2px] rounded-full">
-        <div className="flex flex-row px-14 py-10">
-          <div className="flex flex-col text-white"  >
-            <h1 className="text-[160px]">
-            25K+
-            </h1>
-          <p className="text-[24px]">
-            Celebrities to choose from
-          </p>
+        <div className="absolute bottom-0 -left-1 flex flex-row justify-between items-center bg-gradient-to-b from-transparent to-black h-82 max-w-66 w-full z-10 px-10 backdrop-blur-[2px]">
+          <div className="flex flex-row px-14 py-10">
+            <div className="flex flex-col text-white">
+              <h1 className={`${sectionThreeHeadings && sectionThreeHeadings[0]?.name} text-[160px]`}>{sectionThreeHeadings && sectionThreeHeadings[0]?.value}</h1>
+              <p className={`${sectionThreeHeadings && sectionThreeHeadings[1]?.name} text-[24px]`}>{sectionThreeHeadings && sectionThreeHeadings[1]?.value}</p>
+            </div>
+          </div>
+          <div>
+            <Link
+              href="/celebrities"
+              className={`${sectionThreeHeadings && sectionThreeHeadings[2]?.name} flex flex-row gap-10 text-[24px] text-white justify-center items-center bg-gradient-to-br from-[#F1663363] via-[#FD2D7D63] to-[#15121263] rounded-full px-14 py-4 border-[1px] border-gray-700`}
+            >
+              <p className="flex flex-col text-start">
+                <span className="max-w-40">{sectionThreeHeadings && sectionThreeHeadings[2]?.value}</span>
+              </p>
+              <RightArrow />
+            </Link>
           </div>
         </div>
-        <div>
-        <Link href="/various-artists" className="flex flex-row gap-4 text-[24px] text-white justify-center items-center bg-gradient-to-br from-[#F1663363] via-[#FD2D7D63] to-[#15121263] rounded-full px-14 py-4 border-[1px] border-gray-700">
-          <p className="flex flex-col text-start"><span>See Price and</span>
-          <span>Book Now</span></p>
-          <RightArrow/>
-        </Link>
-        </div>
       </div>
-    </div>
-  </Section>
-);
+    </Section>
+  );
+};
 
 export { Price };
