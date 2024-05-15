@@ -385,6 +385,7 @@ video {
   min-height: 45rem;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 
@@ -392,6 +393,7 @@ video {
   text-align: center;
   font-size: 18px;
   height: calc((100% - 30px) / 2) !important;
+
 
   /* Center slide text vertically */
   display: flex;
@@ -407,9 +409,82 @@ video {
   border-radius: 20px !important;
   height: 8px;
   background: white !important;
+  
 }
 
 .profilePhotoSwiper .swiper-pagination .swiper-pagination-bullet-active {
   width: 4rem;
   height: 8px;
+}
+.products-parent .slick-slider button {
+  margin-top: -15px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(234, 44, 75);
+  margin-top: -50px;
+}
+.carousel .thumb {
+  transition: border 0.15s ease-in;
+  display: inline-block;
+  margin-right: 6px;
+  object-fit: contain;
+  white-space: nowrap;
+  /* overflow: visible; */
+  border: 3px solid #fff;
+  padding: 2px;
+  height: 100px;
+}
+.carousel .control-dots .dot.selected,
+.carousel .control-dots .dot:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background-color: #be185d;
+  width: 10px;
+  height: 1px;
+}
+/* the slides */
+
+/* .products-parent .slick-slider .slick-list .slick-track .slick-slide div {
+  padding-left: 12px;
+  padding-right: 12px;
+} */
+/* .slick-slide {
+  margin: ;
+}
+.slick-list {
+  margin: 0 -5px;
+} */
+/* .slick-slider .slick-list .slick-track .slick-slide div {
+  /* padding-left: 6px;
+  
+  /* padding-right: 6px; */
+
+/* .slick-next {
+  right: -40px;
+  top: 171px;
+}
+.slick-prev {
+  left: -40px;
+  top: 171px;
+} */
+.sliders {
+  background-color: rgb(226, 228, 229);
+  width: 100%;
+  height: 5px;
+}
+.sliders .thumb {
+  display: none;
+}
+
+.sliders .tracks .track-1 {
+  background-color: red;
+  top: 30px;
+}
+.slick-arrow .slick-prev{
+  display: none !important;
+}
+.slick-arrow {
+  display: none !important;
 }

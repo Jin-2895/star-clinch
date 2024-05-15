@@ -16,7 +16,7 @@ const index = ({data}: IIndexProps) => {
       <Meta title={data?.meta?.title} description={data?.meta?.description} />
       <Navbar categories={data?.categories}/>
       <ArtistProfileBase profile={data}/>
-      <Footer />
+      <div className="hidden h-0 lg:h-full lg:block"><Footer /></div>
     </div>
     
   )
