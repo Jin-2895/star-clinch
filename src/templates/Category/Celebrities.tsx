@@ -12,6 +12,7 @@ type ICategoryProps = {
 const Celebrities = ({ categories }: ICategoryProps) => {
   const [carouselVisible, setCarouselVisible] = useState<boolean>(false);
 
+  // console.log("categories",categories)
   return (
     <div className="flex flex-col justify-start w-full mx-auto  ">
       <div className="relative gradient-class sm:none  w-full">

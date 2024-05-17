@@ -488,3 +488,7 @@ video {
 .slick-arrow {
   display: none !important;
 }
+
+.cards :nth-child(n+3){
+  transform: translateY(-330px) ;
+}
