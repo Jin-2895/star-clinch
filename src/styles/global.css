@@ -380,14 +380,27 @@ video {
   padding-bottom: -50px !important;
 }
 
-.profilePhotoSwiper {
-  width: 100%;
-  min-height: 45rem;
-  margin-left: auto;
-  margin-right: auto;
+@media (max-width: 768px) {
+  .profilePhotoSwiper {
+    /* Apply mobile-specific styles here */
+    width: 100%;
+    /* min-height: 45rem; */
+    /* margin-left: auto;
+    margin-right: auto; */
+    
+  }
+
+  .swiper-grid-column > .swiper-wrapper {
+    flex-wrap: wrap;
+    flex-direction: row !important;
+  }
+  /* .swiper-wrapper{
+    padding-left: 30px;
+    padding-right: 30px;
+
+  } */
 
 }
-
 
 .profilePhotoSwiper .swiper-wrapper .swiper-slide {
   text-align: center;

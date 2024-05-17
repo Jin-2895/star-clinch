@@ -10,15 +10,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Grid } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
+import 'swiper/swiper-bundle.css';
 import { IoMdArrowDropdown } from "react-icons/io";
 
 import YouTube from "react-youtube";
-// import Slider from 'react-slick';
-// import Slider from "react-slick";
+
 
 type ArtistProfileProps = {
   profile?: Profile;
@@ -29,8 +26,7 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
   const [read, setRead] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   
-  // const [height, setHeight] = useState('20px');
-  // const sliderRef = React.useRef<Slider>(null);
+
 
 
   const videoRef = useRef<YouTube | null>(null);
@@ -43,12 +39,10 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
 
   const readMore = () => {
     setRead(!read)
-    // setHeight(read ? '48px' : 'auto'); 
   };
 
   const handleOpen = () => {
     setOpen(!open)
-    // setHeight(read ? '48px' : 'auto'); 
   };
   const rotate = open&& "rotate-180"
 
@@ -80,17 +74,7 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
     "rounded-t-full",
   ];
   
-    // const Settings = {
-    //   dots: true,
-    // infinite: true,
-    // speed: 500,
 
-    // slidesToShow: 2,
-    // slidesToScroll: 2,
-    // swipeToSlide: true,
-    // initialSlide: 1,
-    // rows: 3,
-    // };
 
   const opts: any = {
     height: "630",
@@ -105,7 +89,7 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
     },
   };
 
-  //  eslint-disable-next-line
+
   const onReady = (event: any) => {
     setPlayer(event.target);
   };
@@ -193,7 +177,6 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
           </div>
           <div className="lg:hidden    flex  flex-col  ">
          <div className="w-full   relative">
-          {/* <div className="w-full h-full absolute  "></div> */}
          <Image
                 width={1000}
                 height={1000}
@@ -219,7 +202,7 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
               <button
                 className=" w-fit inline-flex items-center  justify-between gap-4 bg-transparent  rounded-full px-6 py-2 shadow-lg "
                 style={{
-                  border: "2px solid", // Set border to 2px solid
+                  border: "2px solid", 
                   borderColor: "rgba(253, 45, 125, 0.4)",
                 }}
               >
@@ -400,21 +383,23 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
             </button>
           </div>
         </div> 
-        <div className="tab-content mx-2 text-white pt-2">
+        <div className="tab-content mx-2  text-white pt-2">
           {activeTab === 0 && (
 
             <Swiper
-              slidesPerView={2}
+            slidesPerView={2}
+              spaceBetween={0}
+              slidesPerGroup={3}
               grid={{
                 rows: 3,
-                fill: "column",
               }}
-              spaceBetween={1}
               pagination={{
                 clickable: true,
               }}
+              // onSlideChange={(swiper) => console.log(swiper)}
               modules={[Grid, Pagination]}
-              className="profilePhotoSwiper min-h-full"
+              className="profilePhotoSwiper"
+            
             >
               {profile &&
                 profile?.artist_images?.map((img: string, index: number) => (
@@ -429,29 +414,7 @@ const ArtistProfile = ({ profile }: ArtistProfileProps) => {
                   </SwiperSlide>
                 ))}
             </Swiper>
-  //      <div className="">
-  //            <Slider ref={sliderRef} {...Settings}>
-  //       <div className="w-[100px] h-[100px] bg-red-300" >
-  //         <h3 >1</h3>
-  //       </div>
-  //       <div className="w-[100px] h-[100px] bg-red-300" >
-  //         <h3>2</h3>
-  //       </div>
-  //       <div className="w-[100px] h-[100px] bg-red-300" >
-  //         <h3>3</h3>
-  //       </div>
-  //       <div className="w-[100px] h-[100px] bg-red-300" >
-  //         <h3>4</h3>
-  //       </div>
-  //       <div className="w-[100px] h-[100px] bg-red-300" >
-  //         <h3>4</h3>
-  //       </div>
-  //  =
-      
-   
-       
-  //     </Slider>
-  //      </div>
+
           )}
           {activeTab === 1 && (
             <Swiper
