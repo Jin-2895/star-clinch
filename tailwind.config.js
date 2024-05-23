@@ -26,6 +26,7 @@ module.exports = withMT({
       "6xl": "4rem",
     },
     screens: {
+      xs:"320px",
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
@@ -45,6 +46,8 @@ module.exports = withMT({
     },
     extend: {
       colors: {
+        'white-0': 'rgba(255, 255, 255, 0)',
+        'white-10': 'rgba(255, 255, 255, 0.1)',
         primary: {
           100: "#E6F6FE",
           200: "#C0EAFC",
@@ -67,6 +70,7 @@ module.exports = withMT({
           800: "#2d3748",
           900: "#1a202c",
         },
+      
       },
       lineHeight: {
         hero: "4.5rem",

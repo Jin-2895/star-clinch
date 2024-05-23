@@ -5,6 +5,7 @@ import { Section3Heading, Section4Image } from "@/types/types";
 import ClientsLogo from "@/public/clients/Airbnb";
 
 type Props = {
+  Heading?:boolean
   xAxis?: string;
   initial?: string;
   sectionFourHeadings?: Section3Heading[] | null;

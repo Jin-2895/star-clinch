@@ -15,7 +15,7 @@ type ICTABannerProps = {
 
 
 const CTABanner = (props: ICTABannerProps) => (
-  <div className="flex flex-col justify-between gap-14 col-span-8 relative">
+  <div className="flex flex-col justify-between gap-14 col-span-1 relative">
     <div className="text-2xl font-semibold flex flex-row justify-between w-full px-4">
     {props?.title && (
       <div className={`${props.name ? props?.name : ""} text-white text-[64px] font-light leading-tight  ${props?.titleStyles ? props?.titleStyles : "text-center w-[35rem]"}`}>

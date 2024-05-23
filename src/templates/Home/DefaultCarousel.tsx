@@ -70,7 +70,7 @@ const DefaultCarousel = (props: Props) => {
                   opts={opts}
                   onReady={onReady}
                   onEnd={onEnd}
-                  className={`video-stream-${index} rounded-tr-[10rem] rounded-bl-[10rem] object-fit overflow-hidden`}
+                  className={`video-stream-${index} rounded-tr-[10rem] rounded-bl-[10rem] object-cover `}
                 />
               </SwiperSlide>
             );

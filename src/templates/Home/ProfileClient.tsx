@@ -11,7 +11,7 @@ type IProfileClientProps = {
 }
 
 const ProfileClient = ({ sectionFiveHeadings, sectionFiveData}: IProfileClientProps) => {
-
+console.log(sectionFiveData)
 
   return (
     <Section yPadding="py-[10rem] px-12">
