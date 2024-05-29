@@ -9,8 +9,7 @@ type IProfileClientProps = {
   sectionFiveData: Section5Data[] | null
   value:string
 }
-const ProfileClientMobile = ({ sectionFiveHeadings, sectionFiveData}: IProfileClientProps) => {
-  console.log(sectionFiveHeadings, sectionFiveData)
+const ProfileClientMobile = ({ sectionFiveData}: IProfileClientProps) => {
   return (
     <div>
       <p className='text-white text-center mx-8 text-[32px] leading-[38px] my-8'>
@@ -27,9 +26,7 @@ const ProfileClientMobile = ({ sectionFiveHeadings, sectionFiveData}: IProfileCl
       </div>
       </div>
       </div>
-          {/* <div className=" px-6 gap-2">
-            <ClientInfo sectionFiveData={sectionFiveData}/>
-          </div> */}
+
       
     </div>
   )

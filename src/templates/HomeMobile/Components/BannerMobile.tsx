@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import BannerSlider from "./BannerSlider";
 import { Section2Video } from "@/types/types";
+import Image from "next/image";
 
 type IBannerProps = {
   sectionTwoVideos: Section2Video[] | null;
@@ -30,9 +31,9 @@ console.log(sideText)
                   setSideText={setSideText}/>
       </div>
       <div className="h-[294px] w-full relative">
-        <img src="assets/mobilecircle2.png" alt="mobilecircle2.png" className="absolute left-0 bottom-0" />
+        <Image src="assets/mobilecircle2.png" alt="mobilecircle2.png" className="absolute left-0 bottom-0" />
      
-        <img src="assets/mobilerightcircle.png" alt="mobilecircle3.png" className="absolute right-0 z-10 bottom-0" />
+        <Image src="assets/mobilerightcircle.png" alt="mobilecircle3.png" className="absolute right-0 z-10 bottom-0" />
         <p className="text-white z-20 absolute bottom-16 text-[18px] leading-[29px] px-24">
   Perfectly organized event
   <span className="opacity-50"> at Pune and a huge </span> 

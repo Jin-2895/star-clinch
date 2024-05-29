@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Category } from '@/types/types';
+import Image from 'next/image';
 
 type ICategoryProps = {
   categories: Category[];
@@ -48,7 +49,7 @@ const CategoryMobile = ({ categories }: ICategoryProps) => {
             className={`cards ${index === 0 ? 'translate-y-[-50px]' : ''} transform   transition-transform duration-500`}
             >
               <div className={` ${index === 0 ? 'h-80' : 'h-26'}  ${index === 0 ? 'mt-12' : '-mt-20'} w-full     rounded-xl  mb-4`}>
-                <img
+                <Image
                   src={card.category_banner_image}
                   alt={card.name}
                   className={`w-full ${index === 0 ? 'h-full' : 'h-32'  } object-cover  rounded-xl  relative mb-2`}

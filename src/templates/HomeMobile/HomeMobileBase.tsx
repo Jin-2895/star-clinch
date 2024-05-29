@@ -9,6 +9,12 @@ import BannerMobile from './Components/BannerMobile';
 import PriceMobile from './Components/PriceMobile';
 import ClientMobile from './Components/ClientMobile';
 import ProfileClientMobile from './Components/ProfileClientMobile';
+import CommitmentMobile from './Components/CommitmentMobile';
+import FundedMobile from './Components/FundedMobile';
+import MobileCategoryList from './Components/MobileCategoryList';
+import BrowseMobile from './Components/BrowseMobile';
+import RecentShowsMobile from './Components/RecentShowsMobile';
+import InstagramMobile from './Components/InstagramMobile';
 
 
 type Props = {
@@ -45,10 +51,32 @@ const HomeMobileBase = (props: Props) => {
         <ProfileClientMobile  sectionFiveHeadings={props?.data ? props?.data["section_5_heading"] : null}
       sectionFiveData={props?.data ? props?.data["section_5_data "] : null} value={''}        />
 
-       
-      
-   
-      
+       <CommitmentMobile  sectionSixHeadings={
+            props?.data ? props?.data["section_6_heading"] : null
+          }
+          sectionSixData={props?.data ? props?.data["section_6_data"] : null}/>
+
+          <FundedMobile sectionSevenHeadings={
+            props?.data ? props?.data["section_7_heading"] : null
+          } />
+          
+          <MobileCategoryList     sectionNineHeadings={
+          props?.data ? props?.data["section_9_heading"] : null
+        }
+        sectionNineImages={props?.data ? props?.data["section_9_images"] : null}
+      /> 
+      <BrowseMobile sectionTenHeadings={
+      props?.data ? props?.data["section_10_heading"] : null
+    }
+    sectionTenImages={props?.data ? props?.data["section_10_images"] : null}
+  />
+          
+      <RecentShowsMobile      sectionElevenHeadings={
+          props?.data ? props?.data["section_11_heading"] : null
+        } />
+        <InstagramMobile/>
+
+
       <Footer />
 
 

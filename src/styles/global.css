@@ -602,3 +602,263 @@ margin-top: -30px !important;
     
 }
 
+.categoryListSwiperMobile {
+  width: 30rem !important;
+  height: 52rem !important;
+  padding: 1rem 0 !important;
+  position: relative;
+
+}
+
+.categoryListSwiperMobile .swiper-slide {
+  width: 20rem !important;
+  height: 20rem !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 120px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.categoryListSwiperMobile .slider-controler {
+  position: relative;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryListSwiperMobile .swiper-slide-prev {
+  transition: 400s ease-in-out;
+  border-radius: 2rem;
+  margin: 0 0px 0 300px !important;
+  transform: rotate(6.88deg) !important;
+}
+
+.categoryListSwiperMobile .swiper-slide-next {
+  transition: 400s ease-in-out;
+  border-radius: 2rem;
+  margin: 0 0px 0 200px !important;
+  transform: rotate(-13.2deg) !important;
+}
+
+.categoryListSwiperMobile .swiper-slide-active {
+  transition: 400s ease-in-out;
+  border-radius: 2rem;
+  transform: rotate(7.4deg) !important;
+  margin: 0px 0px 0px 20px;
+}
+
+.categoryListSwiperMobile .swiper-pagination .swiper-pagination-bullet-active {
+  background: white !important;
+  width: 7rem;
+  height: 10px;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(1n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(2n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(3n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(4n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(5n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(6n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(7n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(8n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(9n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+
+.categoryListSwiperMobile .swiper-slide:nth-child(10n) {
+  margin-bottom: -20px !important;
+  margin-top: -20px !important;
+}
+.shape{
+  transform: skew(-7deg);
+}
+
+
+.BrowseSwiper {
+  width: 100%;
+  height: 100%;
+  /* position: absolute !important; */
+}
+
+
+
+.BrowseSwiper .swiper-slide-next {
+
+  margin-left: 10px !important;
+  
+
+ 
+} 
+
+.BrowseSwiper .swiper-slide-prev {
+ 
+  /* margin-left: 20px !important; */
+  margin-right: 10px;
+
+
+
+
+}
+
+.BrowseSwiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px !important;
+
+
+}
+
+
+.BrowseSwiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+
+}
+.BrowseSwiper .swiper-pagination  .swiper-pagination-bullet {
+display: none;
+    
+}
+.BrowseSwiper .swiper-pagination {
+  margin-top: 50px;
+}
+
+
+.recentSlider {
+  width: 100%;
+  height: 100%;
+  /* position: absolute !important; */
+}
+
+
+
+
+
+
+.recentSlider .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  margin: 0px 20px;
+  /* background: #fff; */
+
+
+
+
+
+}
+
+
+.recentSlider .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+
+}
+
+.recentSlider .swiper-pagination {
+  /* margin-top: 10px; */
+  position: absolute !important;
+  width: 100%;
+ display: flex;
+ justify-content: center;
+}
+
+.recentSlider .swiper-pagination .swiper-pagination-bullet-active {
+  background: white !important;
+  width: 30px !important;
+  height: 3px !important;
+}
+
+
+.recentSlider .swiper-pagination {
+  margin-top: 5rem;
+  display: flex;
+  position: relative;
+  bottom: 0 !important;
+}
+
+.recentSlider .swiper-pagination .swiper-pagination-bullet {
+  justify-content: center;
+  bottom: 0 !important;
+  transform: none !important;
+  width: 20px !important;
+  border-radius: 20px !important;
+  height: 3px !important;
+  background: white !important;
+}
+
+.recentSlider .swiper-button-prev
+{
+display: none !important;
+}
+
+.recentSlider .swiper-button-next {
+  display: none !important;
+}
+.recentSlider  .swiper-slide-active {
+
+  /* margin-left: 98px !important; */
+  /* margin-right: 20px !important; */
+  
+
+ 
+} 
+/* .recentSlider .swiper-wrapper{
+  margin-left: 80px !important;
+  margin-right: 70px !important;
+} */

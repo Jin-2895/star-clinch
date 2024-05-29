@@ -2,6 +2,7 @@ import ClientsLogo from '@/public/clients/Airbnb';
 import { Section3Heading, Section4Image } from '@/types/types';
 import React from 'react'
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 
 
@@ -13,10 +14,10 @@ type Props = {
 const ClientMobile = (props: Props) => {
   return (
     <div className='relative h-[392px] my-11' >
-<img className='absolute bottom-0 left-16' src="assets/clientcircle2.png" alt="" />
-<img className='absolute bottom-0 left-0' src="assets/clientcircle.png" alt="" />
-<img className='absolute top-0 right-20' src="assets/clientcircle4.png" alt="" />
-<img className='absolute top-0 right-0' src="assets/clientcircle3.png" alt="" />
+<Image className='absolute bottom-0 left-16' src="assets/clientcircle2.png" alt="" />
+<Image className='absolute bottom-0 left-0' src="assets/clientcircle.png" alt="" />
+<Image className='absolute top-0 right-20' src="assets/clientcircle4.png" alt="" />
+<Image className='absolute top-0 right-0' src="assets/clientcircle3.png" alt="" />
  
    
 <div className='w-full relative flex justify-center top-16'>
