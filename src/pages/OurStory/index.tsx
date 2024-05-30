@@ -1,6 +1,8 @@
-import StoryBase from '@/templates/ourStory/StoryBase';
-import StoryBaseMobile from '@/templates/ourStory/StoryBaseMobile';
 
+
+
+import { StoryBase } from '@/templates/ourStory/StoryBase';
+import StoryBaseMobile from '@/templates/ourStory/StoryBaseMobile';
 import { GetServerSideProps } from 'next';
 import React from 'react';
 

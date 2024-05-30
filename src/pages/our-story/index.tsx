@@ -1,5 +1,5 @@
+import { StoryBase } from '@/templates/ourStory/StoryBase'
 import React from 'react'
-import { StoryBase } from "../../templates/OurStory/StoryBase"
 
 const index = () => {
   return (

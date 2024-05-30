@@ -23,7 +23,7 @@ const BannerSlider = (props: Props) => {
   const videoRef = useRef<YouTube | null>(null);
 
   const opts: any = {
-    height: "600px",
+    height: "300px",
     // borderRadius:"50px",
     width: "100%",
     playerVars: {
@@ -48,7 +48,7 @@ const BannerSlider = (props: Props) => {
   };
 
   return (
-    <div className='relative mx-auto overflow-hidden'>
+    <div className='relative pl-7 mx-auto overflow-hidden'>
       <Swiper
         slidesPerView={"auto"}
         centeredSlides={true}
@@ -69,14 +69,14 @@ const BannerSlider = (props: Props) => {
             }
             return (
               <SwiperSlide key={`youtube-${index}`}>
-              <div className=" w-full overflow-hidden" style={{borderRadius:"20px"}}>
+              <div className=" w-full overflow-hidden " style={{borderRadius:"20px"}}>
               <YouTube
                   ref={videoRef}
                   videoId={videoId ? videoId : ""}
                   opts={opts}
                   onReady={onReady}
                   onEnd={onEnd}
-                  className={`video-stream-${index}  object-cover w-full `}
+                  className={`video-stream-${index}  object-cover w-full  overflow-hidden`}
                 />
               </div>
               </SwiperSlide>
