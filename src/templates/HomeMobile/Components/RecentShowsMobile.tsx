@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination } from "swiper/modules";
+import Image from "next/image";
 
 const data = [
   {
@@ -110,9 +111,12 @@ const RecentShowsMobile = ({ sectionElevenHeadings }: IRecentShows) => {
             return (
               <SwiperSlide key={data?.text} className="max-w-[362px] max-h-[512px] rounded-t-full text-white ">
                 <div className="relative w-full h-full">
-                  <img
+                  <Image
+                  width={400}
+                  height={400}
                     className="absolute inset-0 w-full rounded-t-full h-full object-cover "
                     src={data?.image}
+                    alt="swiper"
                   />
                   <p className="absolute  bottom-4 z-30 text-center w-full text-white">
                     {data?.text}

@@ -30,15 +30,15 @@ const Commitment = ({
                 whileInView="visible"
                 viewport={{ once: false }}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1}}
-                transition={{ duration: 1, ease: "easeIn" }}
-                className="absolute top-12 left-14"
+                animate={{ opacity: 1 }}
+                transition={{ duration: 4, ease: "easeIn" }}
+                className="absolute top-12 left-14 text-green-300 flex justify-center text-center flex-col"
               >
-                <h1 className="text-[60px] leading-[96.82px] text-white">
+                <h1 className="text-[60px] leading-normal">
                   {sectionSixData && sectionSixData[1]?.value}
                 </h1>
-                <h1 className="text-[22px] leading-[38.73px] text-white">
-                {sectionSixData && sectionSixData[1]?.name}
+                <h1 className="text-[22px] leading-normal">
+                  {sectionSixData && sectionSixData[1]?.name}
                 </h1>
               </motion.div>
               <svg
@@ -112,14 +112,14 @@ const Commitment = ({
                   viewport={{ once: false }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeIn" }}
-                  className="absolute left-[9.5rem]"
+                  transition={{ duration: 4, ease: "easeIn" }}
+                  className="absolute left-[9.5rem] text-red-300 flex justify-center text-center flex-col"
                 >
-                  <h1 className="text-[60px] leading-[96.82px] text-white">
-                  {sectionSixData && sectionSixData[2]?.value}
+                  <h1 className="text-[60px] leading-normal">
+                    {sectionSixData && sectionSixData[2]?.value}
                   </h1>
-                  <h1 className="text-[22px] leading-[38.73px] text-white">
-                  {sectionSixData && sectionSixData[2]?.name}
+                  <h1 className="text-[22px] leading-normal">
+                    {sectionSixData && sectionSixData[2]?.name}
                   </h1>
                 </motion.div>
                 <svg
@@ -174,14 +174,14 @@ const Commitment = ({
                   viewport={{ once: false }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeIn" }}
-                  className="absolute top-4 left-[9.5rem]"
+                  transition={{ duration: 4, ease: "easeIn" }}
+                  className="absolute top-4 left-[9.5rem] text-pink-300 flex justify-center text-center flex-col"
                 >
-                  <h1 className="text-[60px] leading-[96.82px] text-white">
-                  {sectionSixData && sectionSixData[3]?.value}
+                  <h1 className="text-[60px] leading-normal">
+                    {sectionSixData && sectionSixData[3]?.value}
                   </h1>
-                  <h1 className="text-[22px] leading-[38.73px] text-white">
-                  {sectionSixData && sectionSixData[3]?.name}
+                  <h1 className="text-[22px] leading-normal">
+                    {sectionSixData && sectionSixData[3]?.name}
                   </h1>
                 </motion.div>
                 <svg
@@ -249,57 +249,80 @@ const Commitment = ({
                 </svg>
               </div>
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-start">
               <div className="relative ">
                 <motion.div
                   whileInView="visible"
                   viewport={{ once: false }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeIn" }}
-                  className="absolute top-[9rem] left-[12rem]"
+                  transition={{ duration: 4, ease: "easeIn" }}
+                  className=" py-[7.2rem] px-[9rem] z-30 flex justify-center text-center flex-col"
                 >
-                  <h1 className="text-[60px] leading-[96.82px] text-white">
-                  {sectionSixData && sectionSixData[4]?.value}
+                  <h1 className="text-[60px] leading-normal text-white">
+                    {sectionSixData && sectionSixData[4]?.value}
                   </h1>
-                  <h1 className="text-[22px] leading-[38.73px] text-white">
-                  {sectionSixData && sectionSixData[4]?.name}
+                  <h1 className="text-[22px] leading-normal text-white">
+                    {sectionSixData && sectionSixData[4]?.name}
                   </h1>
                 </motion.div>
                 <svg
-                  width="530"
-                  height="371"
-                  viewBox="0 0 530 371"
+                className="absolute top-4 left-0 z-10"
+                  width="148"
+                  height="327"
+                  viewBox="0 0 128 307"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <g opacity="0.83">
                     <path
-                      d="M21.012 55.9414C88.3198 55.3635 143.352 109.459 143.93 176.767L145.497 359.276L23.6254 360.323L21.012 55.9414Z"
-                      fill="url(#paint0_linear_0_1)"
+                      d="M0.0120239 2.49316C67.3198 1.91525 122.352 56.0105 122.93 123.318L124.497 305.828L2.62551 306.875L0.0120239 2.49316Z"
+                      fill="url(#paint0_linear_3749_279)"
                     />
                   </g>
-                  <g filter="url(#filter0_bdi_0_1)">
-                    <g clipPath="url(#clip0_0_1)">
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_3749_279"
+                      x1="243.367"
+                      y1="1.63447"
+                      x2="-49.1208"
+                      y2="305.099"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#62CC93" />
+                      <stop offset="1" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <svg
+                className="absolute -top-4 -left-2 z-20"
+                  width="520"
+                  height="400"
+                  viewBox="0 0 540 400"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_bdi_3798_1249)">
+                    <g clipPath="url(#clip0_3798_1249)">
                       <path
-                        d="M21 240.448C21 129.991 110.543 40.4482 221 40.4482H509V368.448H21V240.448Z"
-                        fill="url(#paint1_linear_0_1)"
+                        d="M21 240C21 129.543 110.543 40 221 40H509V368H21V240Z"
+                        fill="url(#paint0_linear_3798_1249)"
                         fillOpacity="0.34"
                         shapeRendering="crispEdges"
                       />
                     </g>
                     <path
-                      d="M21.5 240.448C21.5 130.267 110.819 40.9482 221 40.9482H508.5V367.948H21.5V240.448Z"
-                      stroke="url(#paint2_linear_0_1)"
+                      d="M221 40.5H508.5V367.5H21.5V240C21.5 129.819 110.819 40.5 221 40.5Z"
+                      stroke="url(#paint1_linear_3798_1249)"
                       strokeOpacity="0.8"
                       shapeRendering="crispEdges"
                     />
                   </g>
                   <defs>
                     <filter
-                      id="filter0_bdi_0_1"
+                      id="filter0_bdi_3798_1249"
                       x="0"
-                      y="0.448242"
+                      y="0"
                       width="530"
                       height="394"
                       filterUnits="userSpaceOnUse"
@@ -313,7 +336,7 @@ const Commitment = ({
                       <feComposite
                         in2="SourceAlpha"
                         operator="in"
-                        result="effect1_backgroundBlur_0_1"
+                        result="effect1_backgroundBlur_3798_1249"
                       />
                       <feColorMatrix
                         in="SourceAlpha"
@@ -330,13 +353,13 @@ const Commitment = ({
                       />
                       <feBlend
                         mode="normal"
-                        in2="effect1_backgroundBlur_0_1"
-                        result="effect2_dropShadow_0_1"
+                        in2="effect1_backgroundBlur_3798_1249"
+                        result="effect2_dropShadow_3798_1249"
                       />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
-                        in2="effect2_dropShadow_0_1"
+                        in2="effect2_dropShadow_3798_1249"
                         result="shape"
                       />
                       <feColorMatrix
@@ -360,26 +383,15 @@ const Commitment = ({
                       <feBlend
                         mode="normal"
                         in2="shape"
-                        result="effect3_innerShadow_0_1"
+                        result="effect3_innerShadow_3798_1249"
                       />
                     </filter>
                     <linearGradient
-                      id="paint0_linear_0_1"
-                      x1="264.367"
-                      y1="55.0827"
-                      x2="-28.1209"
-                      y2="358.547"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#62CC93" />
-                      <stop offset="1" stopOpacity="0" />
-                    </linearGradient>
-                    <linearGradient
-                      id="paint1_linear_0_1"
+                      id="paint0_linear_3798_1249"
                       x1="-3.46272"
-                      y1="21.0664"
+                      y1="20.6182"
                       x2="307.504"
-                      y2="519.177"
+                      y2="518.729"
                       gradientUnits="userSpaceOnUse"
                     >
                       <stop offset="0.0916665" stopColor="#FFE3E2" />
@@ -388,11 +400,11 @@ const Commitment = ({
                       <stop offset="0.994177" stopColor="#151212" />
                     </linearGradient>
                     <linearGradient
-                      id="paint2_linear_0_1"
+                      id="paint1_linear_3798_1249"
                       x1="148.408"
-                      y1="84.9674"
+                      y1="84.5191"
                       x2="459.675"
-                      y2="390.752"
+                      y2="390.303"
                       gradientUnits="userSpaceOnUse"
                     >
                       <stop stopColor="#E5D8D8" />
@@ -403,9 +415,9 @@ const Commitment = ({
                       />
                       <stop offset="1" stopColor="white" stopOpacity="0" />
                     </linearGradient>
-                    <clipPath id="clip0_0_1">
+                    <clipPath id="clip0_3798_1249">
                       <path
-                        d="M21 240.448C21 129.991 110.543 40.4482 221 40.4482H509V368.448H21V240.448Z"
+                        d="M21 240C21 129.543 110.543 40 221 40H509V368H21V240Z"
                         fill="white"
                       />
                     </clipPath>
@@ -420,14 +432,14 @@ const Commitment = ({
                   viewport={{ once: false }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeIn" }}
-                  className="absolute left-[9.5rem]"
+                  transition={{ duration: 4, ease: "easeIn" }}
+                  className="absolute left-[9.5rem] text-purple-300 flex justify-center text-center flex-col"
                 >
-                  <h1 className="text-[60px] leading-[96.82px] text-white">
-                  {sectionSixData && sectionSixData[4]?.value}
+                  <h1 className="text-[60px] leading-normal">
+                    {sectionSixData && sectionSixData[4]?.value}
                   </h1>
-                  <h1 className="text-[22px] leading-[38.73px] text-white">
-                  {sectionSixData && sectionSixData[4]?.name}
+                  <h1 className="text-[32px] leading-normal">
+                    {sectionSixData && sectionSixData[4]?.name}
                   </h1>
                 </motion.div>
                 <svg

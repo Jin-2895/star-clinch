@@ -43,7 +43,7 @@ const MobileCategoryList = ({sectionNineHeadings, sectionNineImages}: ICategoryP
             >
               { "Explore all categories"}
             </Link>
-              <img className="mt-1" src="assets/categoryarr.png" alt="" />
+              <Image width={400} height={400} className="mt-1" src="/assets/categoryarr.png" alt="" />
           
         </div>
     </div>

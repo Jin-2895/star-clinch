@@ -26,12 +26,21 @@ const ClientInfo = ({sectionFiveData}: Props) => {
             {sectionFiveData &&
               sectionFiveData?.map(
                 (slide: Section5Data, index: number) => {
+                  const newValue = slide.value.split(" ")
                   return (
                     <SwiperSlide key={`clientinfo-${index}`}>
-                    <div className={`${slide.name} text-white text-[50px] text-center relative py-24`}>
-                      {slide?.value}
+                    <div className={`${slide.name} text-center relative py-[4rem] flex flex-col gap-4`}>
+                    <h1 className='text-white text-[50px] leading-normal '>
+                      {newValue.map((value: string, i: number) => (
+                       
+                       <span key={i} className={`${i > 4 && i < 9 ? "text-white/40" : ""} ${i > 13 && i < 16 ? "text-white/40" : "text-white" }`}>{value}{" "}</span>
+                     ))}
+                     </h1>
+                      
+                      <p className='text-[1.8rem] text-white leading-normal'>{"Artist Name(Artist)"}</p>
+                      
                       <svg
-                      className="absolute -z-10 top-16 left-12"
+                      className="absolute -z-10 top-8 left-6"
                         width="96"
                         height="75"
                         viewBox="0 0 96 75"
@@ -62,7 +71,7 @@ const ClientInfo = ({sectionFiveData}: Props) => {
         ref={(node) => {
           setPrevEl(node);
         }}
-        className="text-white z-20 absolute top-[45%] -left-10 cursor-pointer h-20 w-20"
+        className="text-white z-20 absolute top-[40%] -left-16 cursor-pointer h-20 w-20"
       >
         <svg
           width="77"
@@ -159,7 +168,7 @@ const ClientInfo = ({sectionFiveData}: Props) => {
         ref={(node) => {
           setNextEl(node);
         }}
-        className="text-white z-20 absolute top-[45%] -right-10 cursor-pointer h-20 w-20"
+        className="text-white z-20 absolute top-[40%] -right-16 cursor-pointer h-20 w-20"
       >
         <svg
           width="77"
@@ -254,16 +263,6 @@ const ClientInfo = ({sectionFiveData}: Props) => {
           </defs>
         </svg>
       </button>
-      {/* <div className="absolute bottom-4 right-0 left-0 z-10">
-              <div className="flex items-center justify-center gap-2">
-                {sectionFiveData && sectionFiveData?.map((_, i: number) => (
-                  <div
-                    key={i}
-                    className={`transition-all h-3  bg-white rounded-full ${curr === i ? "p-1 w-[12rem]" : "bg-opacity-50 w-[6rem]"}`}
-                  />
-                ))}
-              </div>
-            </div> */}
     </>
   )
 }

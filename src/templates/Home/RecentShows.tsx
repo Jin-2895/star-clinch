@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Image from "next/image";
 import { Section11Heading } from "@/types/types";
+import { motion } from "framer-motion";
 
 const data = [
   {
@@ -96,9 +97,17 @@ const RecentShows = ({sectionElevenHeadings}: IRecentShows) => {
         title={sectionElevenHeadings && sectionElevenHeadings[0]?.value}
         name={sectionElevenHeadings && sectionElevenHeadings[0]?.name}
         style=""
-        titleStyles="text-start max-w-[40rem]"
+        titleStyles="text-center px-24"
         section={
-          <div className="w-full">
+          <motion.div
+          initial={{
+            transform: "translateX(0px)"
+          }}
+          animate={{
+            transform: "translateX(-16px)"
+          }}
+          transition={{duration: 3, repeat: Infinity, repeatType: "mirror", ease:"easeInOut"}}
+           className="w-full">
               <Swiper
                 navigation={{ prevEl, nextEl }}
                 modules={[Navigation]}
@@ -114,7 +123,7 @@ const RecentShows = ({sectionElevenHeadings}: IRecentShows) => {
                       className="flex flex-row gap-10 px-24"
                     >
                       <Image
-                        className="rounded-t-full max-w-[30rem] min-h-[30rem] max-h-[31rem]"
+                        className="rounded-t-full min-w-[35rem] max-w-[40rem] min-h-[40rem] max-h-[40rem]"
                         width={750}
                         height={550}
                         src={slide.image}
@@ -122,7 +131,7 @@ const RecentShows = ({sectionElevenHeadings}: IRecentShows) => {
                       />
 
                       <div className="flex flex-col gap-4">
-                        <p className="text-white w-full flex justify-center items-center text-start  h-full text-[38px] leading-tight">
+                        <p className="text-white w-full flex justify-center items-center text-start  h-full text-[48px] leading-tight">
                           {slide.text}
                         </p>
                         <div className="flex flex-row justify-start items-center gap-2">
@@ -148,7 +157,7 @@ const RecentShows = ({sectionElevenHeadings}: IRecentShows) => {
                 )}
               </Swiper>
               <button
-                className="text-white z-20 absolute top-[70%] left-0 cursor-pointer h-20 w-20"
+                className="text-white z-20 absolute top-[45%] left-0 cursor-pointer h-20 w-20"
                 ref={(node) => setPrevEl(node)}
               >
                 <svg
@@ -245,7 +254,7 @@ const RecentShows = ({sectionElevenHeadings}: IRecentShows) => {
                 </svg>
               </button>
               <button
-                className="text-white z-20 absolute top-[70%] right-0 cursor-pointer h-20 w-20"
+                className="text-white z-20 absolute top-[45%] right-0 cursor-pointer h-20 w-20"
                 ref={(node) => setNextEl(node)}
               >
                 <svg
@@ -344,7 +353,7 @@ const RecentShows = ({sectionElevenHeadings}: IRecentShows) => {
                   </defs>
                 </svg>
               </button>
-          </div>
+          </motion.div>
         }
       />
     </Section>

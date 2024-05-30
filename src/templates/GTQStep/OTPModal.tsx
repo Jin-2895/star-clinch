@@ -24,7 +24,7 @@ interface FormGtq {
 
 type IOTPModalProps = {
   isOpen: boolean;
-  formData: FormGtq;
+  formData?: FormGtq | null;
   onOpenChange: (e: any) => void;
 };
 
@@ -39,14 +39,14 @@ export default function OTPModal({
     e.preventDefault();
     try {
       const jsonData = {
-        mobile: formData.mobileNumber,
+        mobile: formData?.mobileNumber,
         type: "gtq",
         user_otp: otpValue,
-        cart_id: formData.mobileNumber,
+        cart_id: formData?.mobileNumber,
       };
 
       const res = await fetch(
-        `https://staging-api.starclinch.in/cart/otp/verify/`,
+        `${"https://staging-api.starclinch.in"}/cart/otp/verify/`,
         {
           method: "POST",
           body: JSON.stringify(jsonData),
@@ -71,7 +71,7 @@ export default function OTPModal({
     try {
 
       const res = await fetch(
-        `https://staging-api.starclinch.in/cart/otp/verify/`,
+        `${"https://staging-api.starclinch.in"}/cart/otp/verify/`,
         {
           method: "POST",
           body: JSON.stringify(formData),

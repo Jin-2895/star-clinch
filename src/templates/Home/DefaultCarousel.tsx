@@ -1,6 +1,6 @@
 "use client";
 import { Section2Video } from "@/types/types";
-import React, { SetStateAction, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -9,14 +9,10 @@ import YouTube from "react-youtube";
 
 type Props = {
   sectionTwoVideos?: Section2Video[] | null;
-  children?: React.ReactNode[] | React.ReactNode;
-  indicator?: boolean;
-  autoSlide?: boolean;
-  autoSlideInterval?: number;
-  setSideText: React.Dispatch<SetStateAction<string[] | undefined>>;
+  setSideText?: React.Dispatch<React.SetStateAction<string[] | null | undefined>>
 };
 
-const DefaultCarousel = (props: Props) => {
+const DefaultCarousel = ({sectionTwoVideos, setSideText}: Props) => {
   // eslint-disable-next-line
   const [player, setPlayer] = useState<any>(null);
   const videoRef = useRef<YouTube | null>(null);
@@ -24,7 +20,7 @@ const DefaultCarousel = (props: Props) => {
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
   // eslint-disable-next-line
   const opts: any = {
-    height: "630",
+    height: "810",
     width: "100%",
     playerVars: {
       autoplay: 0,
@@ -46,15 +42,29 @@ const DefaultCarousel = (props: Props) => {
     player.pauseVideo();
   };
 
+  const handleSlideChange = (swiper: any) => {
+    let currentSlideData: Section2Video | null | undefined = null
+    if(sectionTwoVideos){
+      currentSlideData = sectionTwoVideos[swiper.activeIndex];
+      if(currentSlideData){
+        const textSplit = currentSlideData?.name?.split(" ")
+        if(setSideText){
+          setSideText(textSplit)
+        }
+      }
+    }
+  };
+
   return (
     <>
       <Swiper
         navigation={{ prevEl, nextEl }}
         modules={[Navigation]}
-        className="BannerVideo"
+        onSlideChange={handleSlideChange}
+        className="BannerVideo overflow-hidden"
       >
-        {props?.sectionTwoVideos &&
-          props?.sectionTwoVideos.map((slide: Section2Video, index: number) => {
+        {sectionTwoVideos &&
+          sectionTwoVideos.map((slide: Section2Video, index: number) => {
             let videoId: string | null | undefined = null;
             if (slide.value.includes("youtube.com/shorts")) {
               videoId = slide.value.split("/").pop();
@@ -63,14 +73,14 @@ const DefaultCarousel = (props: Props) => {
               videoId = urlParams.get("v");
             }
             return (
-              <SwiperSlide key={`youtube-${index}`}>
+              <SwiperSlide key={`youtube-${index}`} className="object-fit">
                 <YouTube
                   ref={videoRef}
                   videoId={videoId ? videoId : ""}
                   opts={opts}
                   onReady={onReady}
                   onEnd={onEnd}
-                  className={`video-stream-${index} rounded-tr-[10rem] rounded-bl-[10rem] object-cover `}
+                  className={`video-stream-${index} rounded-tr-[10rem] rounded-bl-[10rem] h-full w-full object-cover overflow-hidden`}
                 />
               </SwiperSlide>
             );

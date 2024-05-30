@@ -1,24 +1,48 @@
-import Image from "next/image";
+"use client";
 import { CTABanner } from "../../cta/CTABanner";
 import { Section } from "../../layout/Section";
-import { FilterButton } from "../SingleArtist/Components/FilterButton";
-import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { EffectCoverflow, Pagination } from "swiper/modules";
-import React from "react";
-import { Section10Image, Section3Heading } from "@/types/types";
+import React, { useEffect, useState } from "react";
+import {
+  Category,
+  HomeData,
+  Section10Image,
+  Section3Heading,
+} from "@/types/types";
+import CustomPerformerSlider from "./Components/CustomPerformerSlider";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
 type IBrowsePerformer = {
   sectionTenHeadings: Section3Heading[] | null;
   sectionTenImages: Section10Image[] | null;
+  allData: HomeData | null | undefined;
 };
 
 const BrowsePerformer = ({
   sectionTenHeadings,
-  sectionTenImages,
+  allData,
 }: IBrowsePerformer) => {
+  const [categoryData, setCategoryData] = useState<any | null>(null)
+  const [id, setId] = useState<string | null>(null)
+
+  const handleDataFetching = async (id: string) => {
+    setId(id)
+    try {
+      const response = await fetch(`${"https://staging-api.starclinch.in"}/${id}`)
+      const data = await response.json()
+      if(!data) throw new Error("data Fetching Performer" , data.message)
+      setCategoryData(data)
+    } catch (error: any | null) {
+      console.log(error)
+    }
+  }
+
+  useEffect(()=>{
+    handleDataFetching("book-makeup-artist-online")
+  },[])
+
   return (
     <Section yPadding="py-24">
       <CTABanner
@@ -34,42 +58,32 @@ const BrowsePerformer = ({
               <div className="w-[25rem] h-[25rem] rounded-full bg-gradient-to-bl from-[#FF81E340] from-30% via-[#0B060A03] via-80%  to-transparent to-10% backdrop-blur-2xl"></div>
             </div>
             <div className="flex gap-8 justify-center items-center">
-              <FilterButton num={1} filterName="Live Band" />
-              <FilterButton num={2} filterName="Singer" />
-              <FilterButton num={3} filterName="Celebrity" />
-              <FilterButton num={4} filterName="Dancer" />
-              <FilterButton num={5} filterName="Anchor" />
-              <FilterButton num={5} filterName="Anchor" />
-              <FilterButton num={5} filterName="Anchor" />
+              {allData
+                ? allData?.categories?.map(
+                    (category: Category, index: number) => {
+                      if (index > 7) {
+                        return (
+                          <div key={category.id} className=" bg-gradient-to-tr from-gray-700 via-transparent to-gray-700 p-px rounded-full">
+                            <button
+                              style={{cursor: "pointer"}}
+                              onClick={() => handleDataFetching(category.slug)}
+                              className={`inline-flex items-center justify-between gap-4 rounded-full px-9 py-3 shadow-lg ${category.slug === id ? "hover:bg-gradient-to-tr hover:from-black hover:via-gray-900 hover:to-black bg-gradient-to-r from-[#a56b81] via-[#FF8DB9] to-[#ff5b24] text-black" : "bg-gradient-to-tr from-black via-gray-900 to-black hover:bg-gradient-to-tb hover:from-gray-900 hover:via-black hover:to-gray-900"} transition-all duration-400 text-white`}
+                            >
+                              <h1 className="text-[18px] font-normal leading-[21.78px]">
+                                {category.name}
+                              </h1>
+                            </button>
+                          </div>
+                        );
+                      } else {
+                        return null;
+                      }
+                    }
+                  )
+                : null}
             </div>
             <div className="py-24">
-              <Swiper
-                className="mySwiper"
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={"auto"}
-                coverflowEffect={{
-                  rotate: -50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                pagination={true}
-              >
-                {sectionTenImages &&
-                  sectionTenImages?.map((item: Section10Image, i: number) => (
-                    <SwiperSlide key={i}>
-                      <Image
-                        width={700}
-                        height={700}
-                        src={item.image}
-                        alt={item.name}
-                      />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
+              <CustomPerformerSlider images={categoryData?.artist_list} />
             </div>
           </div>
         }

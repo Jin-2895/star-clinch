@@ -7,6 +7,8 @@ import { AppConfig } from "@/utils/AppConfig";
 import { GetServerSideProps } from "next";
 import React from "react";
 
+const timestamp: number = new Date().getTime();
+
 type IIndexProps ={
   data?: VariousArtist | null | undefined
 }
@@ -23,26 +25,48 @@ const index = ({data}:IIndexProps) => {
   );
 };
 
-export const getServerSideProps:GetServerSideProps = async ({query}) => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   try {
-    const { slug } = query;
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${slug}`, {
-      cache: "no-cache",
+    const { slug, city, gender, language, event, genre } = query;
+
+    const queryParams = [];
+    if (city) {
+      queryParams.push(`l--${city}`);
+    }
+    if (gender) {
+      queryParams.push(`g--${gender}`);
+    }
+    if (language) {
+      queryParams.push(`lang--${language}`);
+    }
+    if (event) {
+      queryParams.push(`e--${event}`);
+    }
+    const queryString = queryParams.join('_');
+    let apiUrl = ""
+    if(genre){
+      apiUrl = `${"https://staging-api.starclinch.in"}/${slug}/${genre}/${queryString ? `/${queryString}?timestamp=${timestamp}` : ''}`;
+    } else {
+      apiUrl = `${"https://staging-api.starclinch.in"}/${slug}${queryString ? `/${queryString}?timestamp=${timestamp}` : ''}`;
+    }
+    console.log(apiUrl)
+    const response = await fetch(apiUrl, {
+      cache: 'no-cache',
     });
     const data = await response.json();
+
     return {
       props: {
         data,
       },
     };
   } catch (error) {
-    console.log(`Error fetching data: ${error}`);
     return {
       props: {
         data: null,
       },
     };
   }
-}
+};
 
 export default index;

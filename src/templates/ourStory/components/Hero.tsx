@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 const Hero = () => {
@@ -150,11 +151,20 @@ const Hero = () => {
             Explore the chapters of our extraordinary journey, where dreams met
             stardom and events became legendary stories.
           </p>
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full gap-3">
           <p className="text-[#D387A2] text-[24px] leading-[29px]  text-center  ">
             Join the journey
           </p>
-          <div>
+          <motion.div
+          animate={{
+            y: [0, 5],
+            transition: {
+                ease: 'linear',
+                duration: 2,
+                repeat: Infinity,
+            }
+        }}
+          >
             <svg
               width="29"
               height="29"
@@ -195,7 +205,7 @@ const Hero = () => {
                 </linearGradient>
               </defs>
             </svg>
-          </div>
+          </motion.div>
           </div>
         </div>
       </div>

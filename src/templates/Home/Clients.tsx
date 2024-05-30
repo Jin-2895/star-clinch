@@ -5,7 +5,6 @@ import { Section3Heading, Section4Image } from "@/types/types";
 import ClientsLogo from "@/public/clients/Airbnb";
 
 type Props = {
-  Heading?:boolean
   xAxis?: string;
   initial?: string;
   sectionFourHeadings?: Section3Heading[] | null;
@@ -16,9 +15,9 @@ const Clients = (props: Props) => {
   return (
     <div className="relative">
       {props.initial === "0%" && (
-        <div className=" relative w-full flex flex-col justify-center items-center mt-20">
-          <h1 className="text-[100px] text-white">Our Clients</h1>
-          <div className="ml-72">
+        <div className="relative w-full flex flex-col justify-center items-center mt-2">
+          <h1 className="text-[70px] text-white py-28">Our Clients</h1>
+          <div className="absolute bottom-0 w-[0]">
             <HappySvg />
           </div>
           <div className="absolute -top-2 right-0">
@@ -124,7 +123,7 @@ const Clients = (props: Props) => {
         </div>
       )}
 
-      <div className="relative w-full overflow-hidden z-10">
+      <div className="relative w-full overflow-hidden z-10 pb-10">
         {/* Wrapping div for seamless looping */}
         <motion.div
           className="flex gap-8"
@@ -159,7 +158,7 @@ const Clients = (props: Props) => {
       {props.initial === "-100%" && (
            <div className="absolute bottom-0 left-0 ">
            <svg
-             width="150"
+             width="240"
              height="200"
              viewBox="0 0 258 373"
              fill="none"

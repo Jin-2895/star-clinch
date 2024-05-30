@@ -1,6 +1,9 @@
 import { Section } from "@/layout/Section";
 import { motion } from "framer-motion";
 import React from "react";
+import  { InstagramCenter } from "./InstagramCenter";
+import { InstagramRight } from "./InstagramRight";
+import { InstagramLeft } from "./InstagramLeft";
 
 const Instagram = () => {
   return (
@@ -50,9 +53,9 @@ const Instagram = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1}}
         transition={{ duration: 3, ease: "easeIn" }}
-        className="text-white absolute top-0 left-0"
+        className="text-white absolute -top-10 left-0"
         >
-          left animation
+          <InstagramLeft/>
         </motion.div>
         <motion.div
         whileInView="visible"
@@ -62,7 +65,7 @@ const Instagram = () => {
         transition={{ duration: 3, ease: "easeIn" }}
         className="text-white absolute top-0 right-0"
         >
-          right animation
+          <InstagramRight/>
         </motion.div>
         <motion.div
         whileInView="visible"
@@ -70,9 +73,9 @@ const Instagram = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1}}
         transition={{ duration: 3, ease: "easeIn" }}
-        className="absolute text-white left-[40%] right-[40%] top-[40%] bottom-[40%]"
+        className="absolute text-white left-[6%] right-[5%] top-[13%]"
         >
-          center animation
+          <InstagramCenter />
         </motion.div>
         </div>
         <div className="flex flex-col justify-center items-center relative gap-14"> 

@@ -12,7 +12,7 @@ export default function SearchInput() {
   const list = useAsyncList({
     async load({ signal, filterText }) {
       const res = await fetch(
-        `https://staging-api.starclinch.in/search/autocomplete?q=${filterText}`,
+        `${"https://staging-api.starclinch.in"}/search/autocomplete?q=${filterText}`,
         { signal }
       );
       const json = await res.json();
@@ -26,14 +26,14 @@ export default function SearchInput() {
     
     <Autocomplete
       classNames={{
-        base: "max-w-xl",
+        base: "bg-gradient-to-r from-[#FFFFFFD4]/20 via-[#FFFFFF00]/20 via-60% to-[#FFFFFFD4]/20 rounded-[2.5rem] p-[1px]",
         listboxWrapper: "max-h-[320px]",
         selectorButton: "text-default-500",
       }}
       inputProps={{
         classNames: {
           input: "ml-1",
-          inputWrapper: "h-[70px] w-[550px] border-gray-900 peer-focus-visible:ring-black",
+          inputWrapper: "h-[85px] rounded-[2.5rem] w-[600px] border-0 peer-focus-visible:ring-0 bg-[#080810]/40",
         },
       }}
       listboxProps={{
@@ -54,7 +54,7 @@ export default function SearchInput() {
       }}
       isLoading={list.isLoading}
       items={list ? list.items : []}
-      placeholder="Search for celebrity ..."
+      placeholder="Search for an artist, category ...."
       popoverProps={{
         offset: 10,
         classNames: {

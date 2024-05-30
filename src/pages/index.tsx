@@ -5,26 +5,25 @@ import { GetServerSideProps } from "next";
 import HomeMobileBase from "@/templates/HomeMobile/HomeMobileBase";
 
 type IIndexProps = {
-  data: HomeData
-}
+  data: HomeData;
+};
 
-const Index = ({data}: IIndexProps) => {
-  if (!data) return null;
+const Index = ({ data }: IIndexProps) => {
   return (
     <>
-      <div className="hidden lg:block">
+     <div className="hidden lg:block">
         <Base data={data} />
       </div>
       <div className="block lg:hidden">
         <HomeMobileBase data={data}/>
       </div>
     </>
-  );;
+  );
 };
 
-export const getServerSideProps:GetServerSideProps = async () =>  {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}`, {
+    const response = await fetch(`${"https://staging-api.starclinch.in"}`, {
       cache: "no-cache",
     });
     const data = await response.json();
@@ -41,6 +40,6 @@ export const getServerSideProps:GetServerSideProps = async () =>  {
       },
     };
   }
-}
+};
 
 export default Index;

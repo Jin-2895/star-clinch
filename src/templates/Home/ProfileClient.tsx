@@ -11,14 +11,14 @@ type IProfileClientProps = {
 }
 
 const ProfileClient = ({ sectionFiveHeadings, sectionFiveData}: IProfileClientProps) => {
-console.log(sectionFiveData)
+
 
   return (
-    <Section yPadding="py-[10rem] px-12">
+    <Section yPadding="py-[8rem] px-12">
       <CTABanner
         name={sectionFiveHeadings ? sectionFiveHeadings[0]?.name: "main_heading"}
         title={sectionFiveHeadings ? sectionFiveHeadings[0]?.value : "High Profile Clients Trust Us"}
-        titleStyles="text-start max-w-[35rem]"
+        titleStyles="text-center flex justify-center items-center w-full leading-normal"
         style=""
         section={
           <div className="px-24 gap-2">

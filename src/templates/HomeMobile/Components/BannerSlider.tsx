@@ -23,7 +23,7 @@ const BannerSlider = (props: Props) => {
   const videoRef = useRef<YouTube | null>(null);
 
   const opts: any = {
-    height: "300px",
+    height: "600px",
     // borderRadius:"50px",
     width: "100%",
     playerVars: {

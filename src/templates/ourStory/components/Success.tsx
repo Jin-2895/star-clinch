@@ -13,7 +13,7 @@ const Success = () => {
         <div className="my-36 ">
           <p className="text-[32px] text-white -ml-4 opacity-50">2015-2018</p>
           <div className="flex ml-16 mt-2">
-          <div className="w-[3px] h-[310px] flex flex-col justify-around items-center  rounded-full bg-gradient-to-t from-white-10 to-white  ">
+          <div className="w-[3px] h-[400px] flex flex-col justify-around items-center  rounded-full bg-gradient-to-t from-[#ffffff13] to-white ">
             <div className="w-2 h-2  rounded-full bg-white"></div>
             <div className="w-2 h-2  rounded-full bg-white"></div>
             <div className="w-2 h-2  rounded-full bg-white"></div>

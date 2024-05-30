@@ -1,22 +1,21 @@
-
 import { Section } from "@/layout/Section";
 import React from "react";
 import { Section1Item } from "@/types/types";
 import Celebrity from "@/public/celebrities/CelebOne";
 import SearchInput from "./Components/SearchInput";
+import { motion } from "framer-motion";
 
 type IHeroProps = {
   sectionOne: Section1Item[] | null;
 };
 
 const Hero = ({ sectionOne }: IHeroProps) => {
-
   return (
-    <div className="relative">
+    <div className="relative h-[100vh]">
       <div className="absolute inset-0 flex justify-center items-center z-30">
         <svg
           width="1914"
-          height="1050"
+          height="1210"
           viewBox="0 0 1914 1050"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +70,7 @@ const Hero = ({ sectionOne }: IHeroProps) => {
       <div className="absolute inset-0 flex justify-center items-center z-20">
         <svg
           width="1901"
-          height="1050"
+          height="1290"
           viewBox="0 0 1901 1050"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +125,7 @@ const Hero = ({ sectionOne }: IHeroProps) => {
       <div className="absolute inset-0 flex justify-center items-center z-10">
         <svg
           width="1775"
-          height="1050"
+          height="1250"
           viewBox="0 0 1775 1050"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -178,45 +177,227 @@ const Hero = ({ sectionOne }: IHeroProps) => {
           </defs>
         </svg>
       </div>
-      <Section>
-        <div className="flex flex-col items-center justify-center font-bold text-white overflow-hidden z-40">
-          <div className="flex flex-col items-center overflow-hidden z-30 ">
-            <div className="text-center pt-16">
-              <SearchInput />
-            </div>
+      <div className="absolute inset-0 flex justify-center items-center z-30 top-[14rem]">
+        <svg
+          width="1140"
+          height="1257"
+          viewBox="0 0 1140 1057"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g filter="url(#filter0_i_1558_1292)">
+            <path
+              d="M-6.10352e-05 570C-6.10352e-05 255.198 255.198 -9.15527e-05 570 -9.15527e-05V-9.15527e-05C884.802 -9.15527e-05 1140 255.198 1140 570V1057H-6.10352e-05V570Z"
+              fill="white"
+              fillOpacity="0.01"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_i_1558_1292"
+              x="-6.10352e-05"
+              y="-9.15527e-05"
+              width="1140"
+              height="1091.8"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dy="34.8026" />
+              <feGaussianBlur stdDeviation="69.0528" />
+              <feComposite
+                in2="hardAlpha"
+                operator="arithmetic"
+                k2="-1"
+                k3="1"
+              />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="shape"
+                result="effect1_innerShadow_1558_1292"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <motion.div
+              whileInView="visible"
+              viewport={{ once: false }}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 2, ease: "easeIn" }} 
+              className="absolute inset-0 flex justify-center items-center z-0 top-[14.5rem]">
+                <svg
+                  width="906"
+                  height="1057"
+                  viewBox="0 0 906 1057"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g opacity="0.52" filter="url(#filter0_f_1558_1293)">
+                    <path
+                      d="M113 1044.77C113 1044.77 303.221 15 439.261 15C583.029 15 793 1057 793 1057L113 1044.77Z"
+                      fill="url(#paint0_linear_1558_1293)"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_f_1558_1293"
+                      x="0"
+                      y="-98"
+                      width="906"
+                      height="1268"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="56.5"
+                        result="effect1_foregroundBlur_1558_1293"
+                      />
+                    </filter>
+                    <linearGradient
+                      id="paint0_linear_1558_1293"
+                      x1="441.243"
+                      y1="-350.299"
+                      x2="449.285"
+                      y2="1277.74"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0.107292" stopColor="#FFC7DF" />
+                      <stop offset="1" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+      </motion.div>
 
-            <div className="">
-              <h1 className="my-8 text-center text-[5rem] font-normal leading-[125.86px] text-white">
+      <Section>
+        <div className="flex flex-col items-center justify-center font-bold text-white overflow-hidden">
+          <div className="relative flex flex-col items-center overflow-hidden z-30 ">
+            <motion.div
+            whileInView="visible"
+            viewport={{ once: false }}
+            initial={{ opacity: 0.1 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3, ease: "easeIn" }}
+             className="text-center pt-[210px]">
+              <SearchInput />
+            </motion.div>
+
+            <div className="relative ">
+              
+              <motion.h1
+              whileInView="visible"
+              viewport={{ once: false }}
+              initial={{ opacity: 0.1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 3, ease: "easeIn" }}
+               className="my-8 text-center text-[100px] leading-[125.86px] text-white font-[300] px-10">
                 Book a Celebrity
-              </h1>
-              <p className="text-center text-[48px] font-normal leading-[58.09px] text-white">
-                for you Iconic Event
-              </p>
+              </motion.h1>
+              <motion.div
+                whileInView="visible"
+                viewport={{ once: false }}
+                initial={{ opacity: 0.1, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, ease: "easeIn" }}
+                className="absolute right-0 top-9"
+              >
+                <svg
+                  width="292"
+                  height="135"
+                  viewBox="0 0 292 135"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.71289 1.7821H224.354C260.528 1.7821 289.854 31.1075 289.854 67.2821C289.854 103.457 260.528 132.782 224.354 132.782H1.71289V1.7821Z"
+                    stroke="url(#paint0_linear_1558_1297)"
+                    strokeOpacity="0.8"
+                    strokeWidth="3"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_1558_1297"
+                      x1="438.21"
+                      y1="54.3212"
+                      x2="242.837"
+                      y2="-130.777"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0.440625" stopColor="#F85694" />
+                      <stop offset="0.836458" stopColor="#F16633" />
+                      <stop
+                        offset="0.994177"
+                        stopColor="#151212"
+                        stopOpacity="0"
+                      />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </motion.div>
+              <motion.p
+              whileInView="visible"
+              viewport={{ once: false }}
+              initial={{ opacity: 0.1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 3, ease: "easeIn" }}
+               className="text-center text-[48px] font-[300] leading-[58.09px] text-white px-10">
+                <span className="text-white/40">for you</span> Iconic Event
+              </motion.p>
             </div>
-            <div className="mx-auto">
+            <motion.div
+            whileInView="visible"
+            viewport={{ once: false }}
+            initial={{ opacity: 0.1 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 5, ease: "easeIn" }}
+             className="mx-auto">
               <div className="flex flex-row gap-4 w-fit">
-                <div className="relative max-w-[13rem] min-w-[13rem] min-h-[25rem] overflow-hidden rounded-t-full">
+                <div className="relative max-w-[16rem] min-w-[16rem] min-h-[25rem] overflow-hidden rounded-t-full">
                   <Celebrity
                     celebProps={sectionOne}
                     style="celebrity-one object-cover"
                   />
                 </div>
-                <div className="flex flex-row items-end justify-between  gap-4">
+                <div className="flex flex-row items-end justify-between  gap-7">
                   <div className="flex flex-col gap-4">
-                    <div className="relative max-w-[13rem] min-w-[13rem] min-h-[13rem] overflow-hidden rounded-t-full rounded-bl-full">
+                    <div className="relative max-w-[17rem] min-w-[17rem] min-h-[16rem] overflow-hidden rounded-t-full rounded-bl-full">
                       <Celebrity
                         celebProps={sectionOne}
                         style="celebrity-two object-cover"
                       />
                     </div>
-                    <div className="relative max-w-[13rem] min-w-[13rem] min-h-[13rem] overflow-hidden">
+                    <div className="relative max-w-[17rem] min-w-[17rem] min-h-[8rem] overflow-hidden rounded-md">
                       <Celebrity
                         celebProps={sectionOne}
                         style="celebrity-three object-cover"
                       />
                     </div>
                   </div>
-                  <div className="relative max-w-[13rem] min-w-[13rem] min-h-[26rem] overflow-hidden rounded-tl-full">
+                  <div className="relative max-w-[17rem] min-w-[17rem] min-h-[22rem] overflow-hidden rounded-tl-[150px]">
                     <Celebrity
                       celebProps={sectionOne}
                       style="celebrity-four object-cover "
@@ -224,13 +405,13 @@ const Hero = ({ sectionOne }: IHeroProps) => {
                   </div>
                 </div>
                 <div className="mt-20 flex flex-col items-end gap-4">
-                  <div className="relative max-w-[13rem] min-w-[13rem] min-h-[13rem] overflow-hidden rounded-l-full">
+                  <div className="relative max-w-[17rem] min-w-[17rem] min-h-[14rem] overflow-hidden rounded-l-full">
                     <Celebrity
                       celebProps={sectionOne}
                       style="celebrity-five object-cover"
                     />
                   </div>
-                  <div className="relative max-w-[13rem] min-w-[13rem] min-h-[13rem] overflow-hidden rounded-tl-[50%]">
+                  <div className="relative max-w-[17rem] min-w-[17rem] min-h-[14rem] overflow-hidden">
                     <Celebrity
                       celebProps={sectionOne}
                       style="celebrity-six object-cover"
@@ -238,7 +419,7 @@ const Hero = ({ sectionOne }: IHeroProps) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </Section>

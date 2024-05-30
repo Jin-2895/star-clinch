@@ -26,10 +26,9 @@ const GQTStepMobile = ({profile}: IGTQSTEPS) => {
   const [isFirstStep, setIsFirstStep] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [verify, setVerify] = useState<boolean>(false);
-  console.log(verify, isFirstStep);
+  console.log(verify, isFirstStep,profile);
 
   const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
-  console.log(profile)
   return (
     <div className="flex  flex-col justify-start ">
       <div className="flex  flex-col px-4 py-4">
@@ -66,6 +65,7 @@ const GQTStepMobile = ({profile}: IGTQSTEPS) => {
             <div className="w-full   py-20 ">
               <Stepper
                 className="px-[24px]"
+                activeLineClassName="!bg-deep-orange-500"
                 activeStep={activeStep}
                 isLastStep={(value: boolean) => setIsLastStep(value)}
                 isFirstStep={(value: boolean) => setIsFirstStep(value)}

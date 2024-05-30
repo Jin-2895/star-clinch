@@ -16,7 +16,7 @@ const index = ({data}: IIndexProps) => {
       <Meta title={data?.meta?.title} description={data?.meta?.description} />
       <Navbar categories={data?.categories}/>
       <ArtistProfileBase profile={data}/>
-      <div className="hidden h-0 lg:h-full lg:block"><Footer /></div>
+      <Footer />
     </div>
     
   )
@@ -25,7 +25,7 @@ const index = ({data}: IIndexProps) => {
 export const getServerSideProps:GetServerSideProps = async({query}) => {
   try {
     const { name } = query;
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${name}`, {
+    const response = await fetch(`${"https://staging-api.starclinch.in"}/${name}`, {
       cache: "no-cache",
     });
     const data = await response.json();

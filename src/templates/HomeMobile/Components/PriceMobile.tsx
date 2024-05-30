@@ -65,7 +65,9 @@ const PriceMobile = ({ sectionThreeHeadings, sectionThreeImages }: IPriceProps) 
               <p className="">
                 <span className="">{sectionThreeHeadings && sectionThreeHeadings[2]?.value}</span>
               </p>
-              <div className='w-10'><img src="assets/rightarrow.png" alt="" /></div>
+              <div className='w-10'>
+                <Image width={100} height={100} src="/assets/rightarrow.png" alt="" />
+                </div>
             </Link>
           </div>
       </div>

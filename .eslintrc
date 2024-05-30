@@ -1,24 +1,17 @@
 {
-  "extends": [
-    "airbnb-base",
-    "next/core-web-vitals",
-    "plugin:prettier/recommended",
-  ],
+  "extends": ["prettier", "airbnb-base", "next/core-web-vitals"],
+  "plugins": ["prettier"],
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/no-var-requires": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "endOfLine": "auto",
-      },
-    ],
+    "prettier/prettier": "error",
   },
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
       "plugins": [
-        "@typescript-eslint",
+        "prettier",
         "unused-imports",
         "tailwindcss",
         "simple-import-sort",
@@ -40,12 +33,13 @@
             "endOfLine": "auto",
           },
         ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-var-requires": "off",
         "react/destructuring-assignment": "off",
         "react/require-default-props": "off",
         "react/jsx-props-no-spreading": "off",
-        "react-hooks/exhaustive-deps": "off",
         "@next/next/no-img-element": "off",
         "@next/next/link-passhref": "off",
         "@typescript-eslint/comma-dangle": "off",

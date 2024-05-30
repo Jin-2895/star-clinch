@@ -13,7 +13,7 @@ const index = ({data}: IIndexProps) => {
 
 export const getServerSideProps:GetServerSideProps = async() => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}`, {
+    const response = await fetch(`${"https://staging-api.starclinch.in"}`, {
       cache: "no-cache",
     });
     const data = await response.json();

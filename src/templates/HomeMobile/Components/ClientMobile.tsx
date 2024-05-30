@@ -1,30 +1,49 @@
-import ClientsLogo from '@/public/clients/Airbnb';
-import { Section3Heading, Section4Image } from '@/types/types';
-import React from 'react'
+import ClientsLogo from "@/public/clients/Airbnb";
+import { Section3Heading, Section4Image } from "@/types/types";
+import React from "react";
 import { motion } from "framer-motion";
-import Image from 'next/image';
-
-
+import Image from "next/image";
 
 type Props = {
-
   sectionFourHeadings?: Section3Heading[] | null;
   sectionFourImages?: Section4Image[] | null;
 };
 const ClientMobile = (props: Props) => {
   return (
-    <div className='relative h-[392px] my-11' >
-<Image className='absolute bottom-0 left-16' src="assets/clientcircle2.png" alt="" />
-<Image className='absolute bottom-0 left-0' src="assets/clientcircle.png" alt="" />
-<Image className='absolute top-0 right-20' src="assets/clientcircle4.png" alt="" />
-<Image className='absolute top-0 right-0' src="assets/clientcircle3.png" alt="" />
- 
-   
-<div className='w-full relative flex justify-center top-16'>
-<p className='text-[32px] text-white  mx-auto '>Our Clients</p>
-</div>
+    <div className="relative h-[392px] my-11">
+      <Image
+        width={800}
+        height={800}
+        className="absolute bottom-0 left-16 max-h-[200px] max-w-[150px]"
+        src="/assets/clientcircle2.png"
+        alt=""
+      />
+      <Image
+        width={800}
+        height={800}
+        className="absolute bottom-0 left-0 max-h-[200px] max-w-[100px]"
+        src="/assets/clientcircle.png"
+        alt=""
+      />
+      <Image
+        width={800}
+        height={800}
+        className="absolute top-0 right-20 max-h-[200px] max-w-[100px]"
+        src="/assets/clientcircle4.png"
+        alt=""
+      />
+      <Image
+        width={800}
+        height={800}
+        className="absolute top-0 right-0 max-h-[200px] max-w-[100px]"
+        src="/assets/clientcircle3.png"
+        alt=""
+      />
+
+      <div className="w-full relative flex justify-center top-16">
+        <p className="text-[32px] text-white  mx-auto ">Our Clients</p>
+      </div>
       <div className="relative w-full top-28 overflow-hidden z-10">
-  
         {/* Wrapping div for seamless looping */}
         <motion.div
           className="flex gap-2"
@@ -44,7 +63,7 @@ const ClientMobile = (props: Props) => {
                 <div
                   key={i}
                   className="flex-shrink-0"
-                  style={{ width:"110px" }}
+                  style={{ width: "110px" }}
                 >
                   <div className="flex flex-col items-center justify-center   ">
                     <ClientsLogo image={image} />
@@ -107,11 +126,9 @@ const ClientMobile = (props: Props) => {
               )
             )}
         </motion.div>
-        
-       
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ClientMobile
+export default ClientMobile;

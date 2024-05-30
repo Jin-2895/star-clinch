@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { CTABanner } from "../../cta/CTABanner";
 import { Section } from "../../layout/Section";
 import { DefaultCarousel } from "./DefaultCarousel";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Section2Heading, Section2Video } from "@/types/types";
 
 type IBannerProps = {
@@ -11,12 +11,18 @@ type IBannerProps = {
 };
 
 const Banner = ({ sectionTwoHeadings, sectionTwoVideos }: IBannerProps) => {
-  const [sideText, setSideText] = useState<string[] | undefined>(
-    sectionTwoVideos ? sectionTwoVideos[0]?.name.split("  ") : undefined
-  );
+  const [sideText, setSideText] = useState<string[] | null | undefined>(null);
+
+  useEffect(()=>{
+    if(sectionTwoVideos){
+      const textSplit = sectionTwoVideos[0]?.name.split(" ")
+      setSideText(textSplit)
+    }
+  },[sectionTwoVideos])
+
 
   return (
-    <Section yPadding="pt-[4rem]">
+    <Section yPadding="pt-[20rem]">
       <CTABanner
         title={
           sectionTwoHeadings
@@ -29,12 +35,12 @@ const Banner = ({ sectionTwoHeadings, sectionTwoVideos }: IBannerProps) => {
             : "Recognized excellence by the top celebrities. Get the inside scoop - top celebrities share their thoughts on working with StarClinch."
         }
         style=""
-        titleStyles="text-start max-w-[35rem]"
+        titleStyles="text-start w-full"
         section={
-          <div className="relative">
-             <svg  className="absolute bottom-0 -left-24"
+          <div className="relative pt-[5rem]">
+              <svg  className="absolute bottom-0 -left-32"
                   width="1000"
-                  height="640"
+                  height="1033"
                   viewBox="0 0 1000 640"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -149,13 +155,10 @@ const Banner = ({ sectionTwoHeadings, sectionTwoVideos }: IBannerProps) => {
                       <stop offset="1" stopColor="white" stopOpacity="0" />
                     </linearGradient>
                   </defs>
-                </svg>
-            <div className="relative grid grid-cols-8 w-full justify-center items-center">
-              <div className="col-span-1"/>
-              <div className="relative col-span-3">
-               
+              </svg>
+            <div className="relative flex flex-row w-full justify-center items-center">
                 <div className="relative z-20">
-                  <p className="text-white text-[42px] leading-tight h-full w-full px-24 mt-[12rem]">
+                  <p className="text-white text-[42px] max-w-[45rem] leading-normal h-full w-full pr-[10rem] mt-[4rem]">
                     {sideText &&
                       sideText?.map((el: string, i: number) => (
                         <motion.span
@@ -163,27 +166,27 @@ const Banner = ({ sectionTwoHeadings, sectionTwoVideos }: IBannerProps) => {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{
-                            duration: 2,
-                            delay: i / 16,
+                            duration: 4,
+                            delay: i / 8,
                           }}
+                          className={`${i >= 3 && i <= 7 && "text-gray-600" } ${i >= 12 && "text-gray-600"}`}
                         >
                           {el}{" "}
                         </motion.span>
                       ))}
                   </p>
                 </div>
-              </div>
-              <div className="col-span-1"/>
-              <div className="relative col-span-3 w-full bg-gradient-to-br from-[#F16633CC] to-[#FD2D7DCC] p-1 gap-2 rounded-tr-[10rem] rounded-bl-[10rem] backdrop-blur-lg bg-opacity-20 max-w-md">
+              <div className="px-10 relative">
+              <div className="relative  w-full bg-gradient-to-br from-[#F16633CC] to-[#FD2D7DCC] p-3 gap-2 rounded-tr-[10rem] rounded-bl-[10rem] backdrop-blur-lg bg-opacity-20 max-w-[30rem]">
                 <DefaultCarousel
-                  indicator={false}
                   sectionTwoVideos={sectionTwoVideos}
                   setSideText={setSideText}
                 />
-                <div className="absolute -bottom-[4rem] -left-[10rem] z-10">
+              </div>
+                <div className="absolute -bottom-[5rem] -left-[10rem] z-10">
                   <svg
-                    width="350"
-                    height="303"
+                    width="500"
+                    height="383"
                     viewBox="0 0 450 403"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -589,3 +592,12 @@ const Banner = ({ sectionTwoHeadings, sectionTwoVideos }: IBannerProps) => {
 };
 
 export { Banner };
+
+// initial={{
+// strokeDasharray: "100%",
+// strokeDashoffset: "100%",
+//}}
+// animate={{
+// strokeDashoffset: "0%",
+//}}
+// transition={{ ease: "linear", duration: 3, repeat: Infinity }}

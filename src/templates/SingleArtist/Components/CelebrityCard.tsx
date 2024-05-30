@@ -13,7 +13,7 @@ const CelebrityCard = ({ list }: CelebrityCardProps) => {
   const { slug } = useParams();
 
   return (
-    <div className="py-4 px-4 flex flex-col gap-4 justify-start rounded-[2.5rem] bg-[#06060C] bg-gradient-t-b from-white to-black backdrop-blur-xl">
+    <div className="py-4 px-4 flex flex-col max-w-[24rem] gap-4 justify-start rounded-[2.5rem] bg-gradient-to-b from-[#06060C] to-transparent">
       <div className="h-fit overflow-hidden min-w-[22rem] min-h-[22rem] max-w-[22rem] max-h-[22rem]  rounded-t-full rounded-br-full mx-auto">
         <Link href={`${slug}/${list.slug}`}>
           <Image

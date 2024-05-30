@@ -1,23 +1,33 @@
 import { Section } from "@/layout/Section";
 import { Section3Heading } from "@/types/types";
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
 type IFundedProps = {
   sectionSevenHeadings: Section3Heading[] | null;
 };
 
 const Funded = ({ sectionSevenHeadings }: IFundedProps) => {
+  const [text, setText] = useState<string[] | null | undefined>(null)
+
+  useEffect(()=>{
+    if(sectionSevenHeadings){
+      const newValue: string[] | undefined = sectionSevenHeadings[0]?.value?.split(" ")
+      setText(newValue)
+    }
+  },[sectionSevenHeadings])
+
   return (
-    <Section innerXPadding="10rem" yPadding="py-24">
+    <Section yPadding="py-[8rem]">
       <div className="relative flex flex-col items-center justify-center font-bold text-white overflow-hidden">
-        <div className="absolute flex w-[700px] flex-col items-center overflow-hidden mt-[15rem] z-10 gap-10">
-          <div className="flex flex-col items-center justify-center p-12">
+        <div className="absolute flex w-[780px] flex-col items-center overflow-hidden mt-[16rem] z-10 gap-10">
+          <div className="flex flex-col items-center justify-center p-10">
             <h1
-              className={`${sectionSevenHeadings && sectionSevenHeadings[0]?.name} text-center font-[400] text-white text-[60px]`}
+              className={`${sectionSevenHeadings && sectionSevenHeadings[0]?.name} text-center font-[400] text-white leading-[60px]`}
             >
-              {/* {text.map((el: string, i: number) => (
+              {text?.map((el: string, i: number) => (
                 <motion.span
-                  className="text-white text-[40px]"
+                  className={`${i < 2 ? "text-white/40" : "" } ${i > 5 && i < 8 ? "text-white/40" : "text-white"} text-[64px]`}
                   key={i}
                   whileInView="visible"
                   initial={{ opacity: 0 }}
@@ -29,8 +39,7 @@ const Funded = ({ sectionSevenHeadings }: IFundedProps) => {
                 >
                   {el}{" "}
                 </motion.span>
-              ))} */}
-              {sectionSevenHeadings && sectionSevenHeadings[0]?.value}
+              ))}
             </h1>
 
             <button

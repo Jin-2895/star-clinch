@@ -9,7 +9,7 @@ type Props = {
 
 const CelebrityCardMobile = ({ list }: Props) => {
   return (
-    <div className="relative flex flex-col my-8 justify-start max-h-[530px] h-screen w-full max-w-[342px] rounded-xl overflow-hidden shadow-lg">
+    <div className="relative flex flex-col my-8 justify-start max-h-[530px] h-screen w-full  rounded-xl overflow-hidden shadow-lg">
       <div
         className="w-full rounded-t-full  absolute z-10"
         style={{
@@ -21,9 +21,9 @@ const CelebrityCardMobile = ({ list }: Props) => {
         }}
       >
         <div className="absolute bottom-20 px-4 flex flex-col  w-full">
-          <div className="font-normal leading-[20xpx] text-[25px] text-white">
+          <div className="font-normal leading-[20.73px] text-[25px] text-white">
             {list?.professional_name}
-          </div>  
+          </div>
           <p
             className="font-normal text-md"
             style={{

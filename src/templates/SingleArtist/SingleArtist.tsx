@@ -1,13 +1,14 @@
 import { Section } from '@/layout/Section'
 import React from 'react'
 import { GoSearch } from 'react-icons/go';
-import { FilterButton } from './Components/FilterButton';
+// import { FilterButton } from './Components/FilterButton';
 import { CelebrityCard } from './Components/CelebrityCard';
 // import { CelebrityCardV2 } from './Components/CelebrityCardV2';
 // import { CelebrityCardV3 } from './Components/CelebrityCardV3';
 // import { CelebrityCardV4 } from './Components/CelebrityCardV4';
 import { ArtistList, VariousArtist } from '@/types/types';
 import { CelebrityCardMobile } from './Components/CelebrityCardMobile';
+import FilterView from './Components/FilterView';
 
 type ISingleArtistProps = {
   data?: VariousArtist | null | undefined;
@@ -27,18 +28,15 @@ const SingleArtist = ({data}: ISingleArtistProps) => {
             Choose from the vast and versatile sea of {data?.artist_list?.length ? data?.artist_list?.length - 1: ""}+ {data?.category?.name}
           </p>
         </div>
-        <div className="flex flex-col gap-14">
+        <div className="flex flex-col gap-8">
           <div className="flex flex-wrap gap-8">
-            <FilterButton num={1} />
-            <FilterButton num={2} />
-            <FilterButton num={3} />
-            <FilterButton num={4} />
-            <FilterButton num={5} />
+            <FilterView buttonLabel="Cities" items={data?.cities} value="city" slug="city_slug" key="id" label="City"/>
+            <FilterView buttonLabel="Gender" items={data?.genders} value="gender" slug="g_slug" key="id" label="Gender"/>
+            <FilterView buttonLabel="Language" items={data?.languages} value="language_name" slug="l_slug" key="id" label="Language"/>
+            <FilterView buttonLabel="Event" items={data?.events} value="event_name" slug="e_slug" key="id" label="Event"/>
           </div>
-          <div className="max-w-full">
-            <form className="w-full mx-auto">
-              <div className=" w-full relative">
-                <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
+            <div className=" w-full relative">
+                <div className="absolute inset-y-0 flex items-center ps-4 pointer-events-none">
                   <GoSearch className="text-[26px] text-white" />
                 </div>
                 <input
@@ -52,12 +50,10 @@ const SingleArtist = ({data}: ISingleArtistProps) => {
                   placeholder="Search for comedians like zakir khan etc etc"
                   required
                 />
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
       </div>
-      <div className="w-full hidden lg:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 py-24 px-10 md:px-0 gap-4">
+      <div className="w-full hidden lg:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 py-16 md:px-24 px-10 gap-4">
         {data?.artist_list?.map((list: ArtistList) => (
         <CelebrityCard key={list.id} list={list}/>
         ))}

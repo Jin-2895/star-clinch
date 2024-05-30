@@ -13,10 +13,10 @@ const StoryBase = () => {
       <Hero />
       <About />
       <Mission/>
-      <Success/>
+      <Success />
       <Footer />
     </div>
   );
 };
 
-export default StoryBase;
+export { StoryBase };

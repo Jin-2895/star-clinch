@@ -1,4 +1,5 @@
 import { Section3Heading } from "@/types/types";
+import Image from "next/image";
 import React from "react";
 import { GoArrowRight } from "react-icons/go";
 
@@ -15,7 +16,7 @@ const FundedMobile = ({ sectionSevenHeadings }: IFundedProps) => {
     <div className=" relative w-full  ">
       <div className="px-16 mt-4">
         <div className="relative">
-          <img src="assets/fundcircle.png" alt="" />
+          <Image width={400} height={400} src="/assets/fundcircle.png" alt="" />
           <p className="absolute top-24 mx-5  text-[32px] leading-[38px] text-center text-white">
             <span className="opacity-50">
               {heading?.[0]} {heading?.[1]}
@@ -41,24 +42,43 @@ const FundedMobile = ({ sectionSevenHeadings }: IFundedProps) => {
       </div>
 
       <div className="w-full mt-5 flex justify-center relative h-[427px]">
-        <img
+        <Image
+          width={400}
+          height={400}
           className="absolute flex justify-center top-0 "
-          src="assets/fund08.png"
+          src="/assets/fund08.png"
           alt=""
         />
-        <img  className="pt-24  " src="assets/fundbg.png" alt="" />
-       
+        <Image
+          width={400}
+          height={400}
+          className="pt-24  "
+          src="/assets/fundbg.png"
+          alt=""
+        />
+
         <div className="text-white bottom-10 px-10  absolute">
           <div className="flex text-wrap gap-3 mb-7">
-            <img className="max-w-5 mt-1 max-h-5" src="assets/vector.png" alt="" />
+            <Image
+              width={400}
+              height={400}
+              className="max-w-5 mt-1 max-h-5"
+              src="/assets/vector.png"
+              alt=""
+            />
             <p>Leveraging tech to give out the best price</p>
           </div>
           <div className="flex gap-3">
-            <img className="max-w-5 mt-1 max-h-5" src="assets/vector.png" alt="" />
+            <Image
+              width={400}
+              height={400}
+              className="max-w-5 mt-1 max-h-5"
+              src="/assets/vector.png"
+              alt=""
+            />
             <p>Reliable Booking and Hassle-free Refunds</p>
           </div>
         </div>
-
       </div>
     </div>
   );

@@ -20,6 +20,16 @@ module.exports = async (phase) => {
           },
           {
             protocol: 'https',
+            hostname: 'bcgbrighthouse.com',
+            pathname: '**',
+          },
+          {
+            protocol: 'https',
+            hostname: 'images.unsplash.com',
+            pathname: '**',
+          },
+          {
+            protocol: 'https',
             hostname: 'prod-platform-data.s3.ap-south-1.amazonaws.com',
             pathname: '**',
           },
@@ -50,11 +60,9 @@ module.exports = async (phase) => {
           }
         ],
       },
-      // experimental: {
-      //   serverActions: {
-      //     allowedOrigins: ['starclinch.com'],
-      //   },
-      // },
+      experimental: {
+        scrollRestoration: true,
+      },
     
       poweredByHeader: false,
       trailingSlash: true,
@@ -71,17 +79,25 @@ module.exports = async (phase) => {
     eslint: {
       dirs: ['.'],
     },
-    // experimental: {
-    //   serverActions: {
-    //     allowedOrigins: ['starclinch.com'],
-    //   },
-    // },
+    experimental: {
+      scrollRestoration: true,
+    },
   
     images: {
       remotePatterns: [
         {
           protocol: 'https',
           hostname: 'artistsimages.b-cdn.net',
+          pathname: '**',
+        },
+        {
+          protocol: 'https',
+          hostname: 'images.unsplash.com',
+          pathname: '**',
+        },
+        {
+          protocol: 'https',
+          hostname: 'bcgbrighthouse.com',
           pathname: '**',
         },
         {
