@@ -9,7 +9,8 @@ type Props = {
 
 const CelebrityCardMobile = ({ list }: Props) => {
   return (
-    <div className="relative flex flex-col my-8 justify-start max-h-[530px] h-screen w-full  rounded-xl overflow-hidden shadow-lg">
+    <div className="relative flex flex-col my-0 md:my-8 justify-start max-h-[530px] h-screen w-full  rounded-xl overflow-hidden shadow-lg">
+    
       <div
         className="w-full rounded-t-full  absolute z-10"
         style={{
@@ -57,7 +58,7 @@ const CelebrityCardMobile = ({ list }: Props) => {
               </div>
               <label
                 id="label1"
-                className="ml-2 text-sm leading-4 font-normal text-gray-800 dark:text-gray-100"
+                className="ml-2 text-sm leading-4 font-normal text-gray-100"
               >
                 {list?.performance_duration ? list?.performance_duration : ""}
               </label>
@@ -76,7 +77,7 @@ const CelebrityCardMobile = ({ list }: Props) => {
             </div>
             <label
               id="label1"
-              className="ml-2 text-sm leading-4 font-normal text-gray-800 dark:text-gray-100"
+              className="ml-2 text-sm leading-4 font-normal text-gray-100"
             >
               {list?.languages ? list?.languages : ""}
             </label>
@@ -84,13 +85,13 @@ const CelebrityCardMobile = ({ list }: Props) => {
         </div>
       </div>
 
-      <div className="h-fit absolute z-50 bottom-0 left-12">
+      <div className="h-fit absolute z-50 bottom-0 left-16">
         <Link
           href={{
             pathname: `/artist-profile/${list?.slug}`,
             query: { profile: JSON.stringify(list) },
           }}
-          className="flex gap-4 items-center justify-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC] hover:bg-gradient-to-b transition-all duration-400 py-4 px-6 rounded-full text-[24px] font-normal text-white"
+          className="flex gap-4 items-center justify-center bg-gradient-to-r from-[#F16633CC] to-[#FD2D7DCC] hover:bg-gradient-to-b transition-all duration-400 py-2 px-4 rounded-full text-[24px] font-normal text-white"
         >
           Price and Book
           <FaArrowRightLong className="text-[22px]" />

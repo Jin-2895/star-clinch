@@ -20,7 +20,7 @@ function MobileNav({ open, setOpen }: IMobileNavbarProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div
-      className={`fixed top-0 right-0 sm:h-screen xs:h-full min-w-[250px]  bg-black md:hidden transform ${
+      className={`fixed top-0 right-0 h-full min-w-[250px]  bg-black md:hidden transform ${
         open ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 ease-in-out `}
     >
@@ -128,17 +128,6 @@ function MobileNav({ open, setOpen }: IMobileNavbarProps) {
             FAQs
           </h1>
         </Link>
-      </div>
-      <div className="flex justify-center gap-3 py-11 ml-4">
-        <div>
-          {/* <Image width={40} height={40} src={facebook} alt="facebook" /> */}
-        </div>
-        <div>
-          {/* <Image width={40} height={40} src={instagram} alt="instagram" /> */}
-        </div>
-        <div>
-          {/* <Image width={40} height={40} src={tiktok} alt="tiktok" /> */}
-        </div>
       </div>
     </div>
   );
